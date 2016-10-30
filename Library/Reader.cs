@@ -12,7 +12,7 @@ namespace Library
 		public string Surname { get; set; }
 		public int ID { get; set; }
 		//change book to issue?
-		public List<Book> takenBooks = new List<Book>();
+		public List<BookCopy> takenBooks = new List<BookCopy>();
 		//context info, not required for fully functioning program
 		public int AK { get; set; }
 		public DateTime DateOfBirth { get; set; }
