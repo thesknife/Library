@@ -11,7 +11,6 @@ namespace Library
 		public string Name { get; set; }
 		public string Surname { get; set; }
 		public int ID { get; set; }
-		//change book to issue?
 		public List<BookCopy> takenBooks = new List<BookCopy>();
 		//context info, not required for fully functioning program
 		public int AK { get; set; }
