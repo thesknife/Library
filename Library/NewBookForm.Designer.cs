@@ -28,8 +28,6 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.newBook = new System.Windows.Forms.RadioButton();
-			this.newCopy = new System.Windows.Forms.RadioButton();
 			this.author = new System.Windows.Forms.TextBox();
 			this.title = new System.Windows.Forms.TextBox();
 			this.ISBN = new System.Windows.Forms.TextBox();
@@ -41,34 +39,13 @@
 			this.label4 = new System.Windows.Forms.Label();
 			this.label5 = new System.Windows.Forms.Label();
 			this.addBook = new System.Windows.Forms.Button();
+			this.newBook = new System.Windows.Forms.RadioButton();
+			this.newCopy = new System.Windows.Forms.RadioButton();
 			this.SuspendLayout();
-			// 
-			// newBook
-			// 
-			this.newBook.AutoSize = true;
-			this.newBook.Location = new System.Drawing.Point(60, 32);
-			this.newBook.Name = "newBook";
-			this.newBook.Size = new System.Drawing.Size(103, 17);
-			this.newBook.TabIndex = 0;
-			this.newBook.TabStop = true;
-			this.newBook.Text = "Add a new book";
-			this.newBook.UseVisualStyleBackColor = true;
-			this.newBook.CheckedChanged += new System.EventHandler(this.newBook_CheckedChanged);
-			// 
-			// newCopy
-			// 
-			this.newCopy.AutoSize = true;
-			this.newCopy.Location = new System.Drawing.Point(60, 56);
-			this.newCopy.Name = "newCopy";
-			this.newCopy.Size = new System.Drawing.Size(171, 17);
-			this.newCopy.TabIndex = 1;
-			this.newCopy.TabStop = true;
-			this.newCopy.Text = "Add a copy of an existing book";
-			this.newCopy.UseVisualStyleBackColor = true;
-			this.newCopy.CheckedChanged += new System.EventHandler(this.newCopy_CheckedChanged);
 			// 
 			// author
 			// 
+			this.author.Enabled = false;
 			this.author.Location = new System.Drawing.Point(131, 96);
 			this.author.Name = "author";
 			this.author.Size = new System.Drawing.Size(173, 20);
@@ -76,6 +53,7 @@
 			// 
 			// title
 			// 
+			this.title.Enabled = false;
 			this.title.Location = new System.Drawing.Point(131, 122);
 			this.title.Name = "title";
 			this.title.Size = new System.Drawing.Size(173, 20);
@@ -83,6 +61,7 @@
 			// 
 			// ISBN
 			// 
+			this.ISBN.Enabled = false;
 			this.ISBN.Location = new System.Drawing.Point(131, 148);
 			this.ISBN.Name = "ISBN";
 			this.ISBN.Size = new System.Drawing.Size(173, 20);
@@ -90,6 +69,7 @@
 			// 
 			// pages
 			// 
+			this.pages.Enabled = false;
 			this.pages.Location = new System.Drawing.Point(131, 200);
 			this.pages.Name = "pages";
 			this.pages.Size = new System.Drawing.Size(173, 20);
@@ -97,6 +77,7 @@
 			// 
 			// year
 			// 
+			this.year.Enabled = false;
 			this.year.Location = new System.Drawing.Point(131, 174);
 			this.year.Name = "year";
 			this.year.Size = new System.Drawing.Size(173, 20);
@@ -149,6 +130,7 @@
 			// 
 			// addBook
 			// 
+			this.addBook.Enabled = false;
 			this.addBook.Location = new System.Drawing.Point(38, 238);
 			this.addBook.Name = "addBook";
 			this.addBook.Size = new System.Drawing.Size(266, 23);
@@ -156,6 +138,30 @@
 			this.addBook.Text = "Add new book";
 			this.addBook.UseVisualStyleBackColor = true;
 			this.addBook.Click += new System.EventHandler(this.addBook_Click);
+			// 
+			// newBook
+			// 
+			this.newBook.AutoSize = true;
+			this.newBook.Location = new System.Drawing.Point(38, 36);
+			this.newBook.Name = "newBook";
+			this.newBook.Size = new System.Drawing.Size(103, 17);
+			this.newBook.TabIndex = 0;
+			this.newBook.TabStop = true;
+			this.newBook.Text = "Add a new book";
+			this.newBook.UseVisualStyleBackColor = true;
+			this.newBook.CheckedChanged += new System.EventHandler(this.newBook_CheckedChanged);
+			// 
+			// newCopy
+			// 
+			this.newCopy.AutoSize = true;
+			this.newCopy.Location = new System.Drawing.Point(38, 59);
+			this.newCopy.Name = "newCopy";
+			this.newCopy.Size = new System.Drawing.Size(171, 17);
+			this.newCopy.TabIndex = 1;
+			this.newCopy.TabStop = true;
+			this.newCopy.Text = "Add a copy of an existing book";
+			this.newCopy.UseVisualStyleBackColor = true;
+			this.newCopy.CheckedChanged += new System.EventHandler(this.newCopy_CheckedChanged);
 			// 
 			// NewBookForm
 			// 
@@ -183,9 +189,6 @@
 		}
 
 		#endregion
-
-		private System.Windows.Forms.RadioButton newBook;
-		private System.Windows.Forms.RadioButton newCopy;
 		private System.Windows.Forms.TextBox author;
 		private System.Windows.Forms.TextBox title;
 		private System.Windows.Forms.TextBox ISBN;
@@ -197,5 +200,7 @@
 		private System.Windows.Forms.Label label4;
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.Button addBook;
+		private System.Windows.Forms.RadioButton newBook;
+		private System.Windows.Forms.RadioButton newCopy;
 	}
 }
