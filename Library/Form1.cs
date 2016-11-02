@@ -15,7 +15,6 @@ namespace Library
 {
 	public partial class Form1 : Form
 	{
-		//List<Book> books = new List<Book>();
 		Dictionary<Book, List<BookCopy>> books = new Dictionary<Book, List<BookCopy>>();
 		List<Reader> readers = new List<Reader>();
 
@@ -82,6 +81,11 @@ namespace Library
 		{
 			WriteData("dataBooks.xml", typeof(Dictionary<Book, List<Book>>), books);
 			WriteData("dataReaders.xml", typeof(List<Reader>), readers);
+		}
+
+		private void addBook_Click(object sender, EventArgs e)
+		{
+			Application.Run(new NewBookForm(books));
 		}
 	}
 }
