@@ -18,7 +18,7 @@ namespace Library
 		public BookCopy(Book book)
 		{
 			Book = book;
-			ID = //-----------------fix
+			ID = 0;//-----------------fix
 			Taken = false;
 		}
 

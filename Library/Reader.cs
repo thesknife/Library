@@ -22,7 +22,7 @@ namespace Library
 		{
 			this.Name = name;
 			this.Surname = surname;
-			this.ID = //------fix
+			this.ID = 0; //------fix
 		}
 
 	}

@@ -21,8 +21,8 @@ namespace Library
 		public Form1()
 		{
 			InitializeComponent();
-			ReadBooks();
-			ReadReaders();
+			//ReadBooks();
+			//ReadReaders();
 		}
 
 		public void ReadBooks()
@@ -79,13 +79,16 @@ namespace Library
 
 		private void Form1_FormClosing(object sender, FormClosingEventArgs e)
 		{
-			WriteData("dataBooks.xml", typeof(Dictionary<Book, List<Book>>), books);
-			WriteData("dataReaders.xml", typeof(List<Reader>), readers);
+			//if (books.Count != 0)
+			//	WriteData("dataBooks.xml", typeof(Dictionary<Book, List<Book>>), books);
+			//if (readers.Count != 0)
+			//	WriteData("dataReaders.xml", typeof(List<Reader>), readers);
 		}
 
 		private void addBook_Click(object sender, EventArgs e)
 		{
-			Application.Run(new NewBookForm(books));
+			NewBookForm newBook = new NewBookForm(books);
+			newBook.Show();
 		}
 	}
 }

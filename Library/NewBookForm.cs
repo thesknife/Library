@@ -18,12 +18,17 @@ namespace Library
 		{
 			InitializeComponent();
 			this.books = books;
+			newCopy.Checked = false;
+			newBook.Checked = false;
 		}
 
 		private void newCopy_CheckedChanged(object sender, EventArgs e)
 		{
 			author.Enabled = true;
 			title.Enabled = true;
+			ISBN.Enabled = false;
+			year.Enabled = false;
+			pages.Enabled = false;
 			addBook.Enabled = true;
 		}
 
@@ -41,13 +46,25 @@ namespace Library
 		{
 			int pg, yr;
 			Book book;
-			if ((int.TryParse(pages.Text, out pg))&&(int.TryParse(year.Text, out yr)))
+			if (newCopy.Checked)
+			{
+				if ((int.TryParse(pages.Text, out pg)) && (int.TryParse(year.Text, out yr)))
+				{
+					books.
+					
+					books[book].Add(new BookCopy(book));
+					this.Close();
+				}
+			}
+			else if (newBook.Checked)
 			{
 				book = new Book(ISBN.Text, title.Text, author.Text, (short)yr, pg);
-				if (!books.ContainsKey(book))
-					books.Add(book, new List<BookCopy>());
+				books.Add(book, new List<BookCopy>());
 				books[book].Add(new BookCopy(book));
-				this.Close();
+			}
+			else
+			{
+				MessageBox.Show("New book type not selected", "Error", MessageBoxButtons.OK);
 			}
 		}
 	}
