@@ -50,7 +50,7 @@ namespace Library
 			{
 				if ((int.TryParse(pages.Text, out pg)) && (int.TryParse(year.Text, out yr)))
 				{
-					books.
+
 					
 					books[book].Add(new BookCopy(book));
 					this.Close();
