@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Library
 {
-	public class BookCopy
+	public class BookCopy : IEquatable<BookCopy>
 	{
 		public Book Book { get; set; }
 		public Reader Reader { get; set; }
@@ -36,6 +36,11 @@ namespace Library
 			Reader = null;
 			DateTaken = null;
 			DateReturn = null;
+		}
+
+		public bool Equals(BookCopy other)
+		{
+			return this.Book.Equals(other.Book);
 		}
 	}
 }
