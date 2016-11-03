@@ -16,7 +16,9 @@ namespace Library
 		 * No double books(in add)
 		 * Find(Book) method
 		 * GetCopyList -- returns list
-		 * 
+		 * lazy bookcopy List ?
+		 * imituot dictionary
+		 * containsKey, ContainsValue
 		 * 
 		 */
 	}
