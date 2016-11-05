@@ -64,7 +64,7 @@
   <ItemGroup>
     <Compile Include="Book.cs" />
     <Compile Include="BookCopy.cs" />
-    <Compile Include="BookList.cs" />
+    <Compile Include="BookDictionary.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

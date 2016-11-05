@@ -20,12 +20,16 @@ namespace Library
 			Book = book;
 			ID = 0;//-----------------fix
 			Taken = false;
+			Reader = null;
+			DateTaken = null;
+			DateReturn = null;
 		}
 
 		public void BookTaken(Reader reader)
 		{
 			Taken = true;
 			Reader = reader;
+			Reader.BookTaken(this);
 			DateTaken = DateTime.Today;
 			DateReturn = DateTime.Today.AddDays(30);
 		}
@@ -33,6 +37,7 @@ namespace Library
 		public void BookReturned()
 		{
 			Taken = false;
+			Reader.BookReturned(this);
 			Reader = null;
 			DateTaken = null;
 			DateReturn = null;

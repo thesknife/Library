@@ -13,6 +13,7 @@ namespace Library
 		public string[] Author { get; set; }
 		public short Year { get; set; }
 		public int NumPages { get; set; }
+		public Book() { }
 
 		public Book(string ISBN, string title, string[] author, short year, int numPages)
 		{
@@ -34,7 +35,7 @@ namespace Library
 
 		public bool Equals(Book other)
 		{
-			return this.Author.Equals(other.Author) && this.Title.Equals(other.Title);
+			return (this.Author.Equals(other.Author) && this.Title.Equals(other.Title) || (this.ISBN.Equals(other.ISBN)));
 		}
 	}
 }

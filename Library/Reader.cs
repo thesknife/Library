@@ -11,7 +11,14 @@ namespace Library
 		public string Name { get; set; }
 		public string Surname { get; set; }
 		public int ID { get; set; }
-		public List<BookCopy> takenBooks = new List<BookCopy>();		// lazy??
+		private Lazy<List<BookCopy>> takenBooks = new Lazy<List<BookCopy>>();		// lazy??
+		public List<BookCopy> TakenBooks
+		{
+			get
+			{
+				return takenBooks.Value;
+			}
+		}
 		//context info, not required for fully functioning program
 		public int AK { get; set; }
 		public DateTime DateOfBirth { get; set; }
@@ -24,6 +31,15 @@ namespace Library
 			this.Surname = surname;
 			this.ID = 0; //------fix
 		}
+		
+		public void BookTaken(BookCopy copy)
+		{
+			TakenBooks.Add(copy);
+		}
 
+		public void BookReturned(BookCopy copy)
+		{
+			TakenBooks.Remove(copy);
+		}
 	}
 }
