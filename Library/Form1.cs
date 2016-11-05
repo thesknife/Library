@@ -15,45 +15,7 @@ namespace Library
 {
 	public partial class Form1 : Form
 	{
-		//Original source: http://web.archive.org/web/20100703052446/http://blogs.msdn.com/b/psheill/archive/2005/04/09/406823.aspx
-		//MOdified by Berger
-		#region
-		private class Entry
-		{
-			public Book Key;
-			public List<BookCopy> Value;
-
-			public Entry() { }
-			public Entry(Book key, List<BookCopy> value)
-			{
-				Key = key;
-				Value = value;
-			}
-		}
-
-		void Serialize(StreamWriter writer, Dictionary<Book, List<BookCopy>> dictionary)
-		{
-			List<Entry> entries = new List<Entry>();
-			foreach (Book key in dictionary.Keys)
-			{
-				entries.Add(new Entry(key, dictionary[key]));
-			}
-			XmlSerializer serializer = new XmlSerializer(typeof(List<Entry>));
-			serializer.Serialize(writer, entries);
-		}
-		void Deserialize(StreamReader reader, Dictionary<Book, List<BookCopy>> dictionary)
-		{
-			dictionary.Clear();
-			XmlSerializer serializer = new XmlSerializer(typeof(List<Entry>));
-			List<Entry> list = (List<Entry>)serializer.Deserialize(reader);
-			foreach (Entry entry in list)
-			{
-				dictionary.Add(entry.Key, entry.Value);
-			}
-		}
-		#endregion
-
-		Dictionary<Book, List<BookCopy>> books = new Dictionary<Book, List<BookCopy>>();		//List<BookCopy>> -- lazy???
+		BookDictionary books = new BookDictionary();
 		List<Reader> readers = new List<Reader>();
 
 		public Form1()

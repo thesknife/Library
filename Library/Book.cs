@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace Library
 {
-	public class Book
+	public class Book : IEquatable<Book>
 	{
 		public string ISBN { get; set; }
 		public string Title { get; set; }
 		public string[] Author { get; set; }
 		public short Year { get; set; }
 		public int NumPages { get; set; }
+		public Book() { }
 
 		public Book(string ISBN, string title, string[] author, short year, int numPages)
 		{
@@ -30,6 +31,11 @@ namespace Library
 			this.Author[0] = author;
 			this.Year = year;
 			this.NumPages = numPages;
+		}
+
+		public bool Equals(Book other)
+		{
+			return (this.Author.Equals(other.Author) && this.Title.Equals(other.Title) || (this.ISBN.Equals(other.ISBN)));
 		}
 	}
 }

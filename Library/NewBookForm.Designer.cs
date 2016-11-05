@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.components = new System.ComponentModel.Container();
 			this.author = new System.Windows.Forms.TextBox();
 			this.title = new System.Windows.Forms.TextBox();
 			this.ISBN = new System.Windows.Forms.TextBox();
@@ -41,6 +42,10 @@
 			this.addBook = new System.Windows.Forms.Button();
 			this.newBook = new System.Windows.Forms.RadioButton();
 			this.newCopy = new System.Windows.Forms.RadioButton();
+			this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+			this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
+			((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// author
@@ -79,6 +84,7 @@
 			// 
 			this.year.Enabled = false;
 			this.year.Location = new System.Drawing.Point(131, 174);
+			this.year.MaxLength = 4;
 			this.year.Name = "year";
 			this.year.Size = new System.Drawing.Size(173, 20);
 			this.year.TabIndex = 5;
@@ -162,6 +168,14 @@
 			this.newCopy.UseVisualStyleBackColor = true;
 			this.newCopy.CheckedChanged += new System.EventHandler(this.newCopy_CheckedChanged);
 			// 
+			// errorProvider1
+			// 
+			this.errorProvider1.ContainerControl = this;
+			// 
+			// errorProvider2
+			// 
+			this.errorProvider2.ContainerControl = this;
+			// 
 			// NewBookForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -182,6 +196,8 @@
 			this.Controls.Add(this.author);
 			this.Name = "NewBookForm";
 			this.Text = "Add new Book";
+			((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -201,5 +217,7 @@
 		private System.Windows.Forms.Button addBook;
 		private System.Windows.Forms.RadioButton newBook;
 		private System.Windows.Forms.RadioButton newCopy;
+		private System.Windows.Forms.ErrorProvider errorProvider1;
+		private System.Windows.Forms.ErrorProvider errorProvider2;
 	}
 }
