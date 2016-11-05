@@ -12,9 +12,9 @@ namespace Library
 {
 	public partial class NewBookForm : Form
 	{
-		Dictionary<Book, List<BookCopy>> books = new Dictionary<Book, List<BookCopy>>();
+		BookDictionary books = new BookDictionary();
 
-		public NewBookForm(Dictionary<Book, List<BookCopy>> books)
+		public NewBookForm(BookDictionary books)
 		{
 			InitializeComponent();
 			this.books = books;
@@ -45,26 +45,44 @@ namespace Library
 		private void addBook_Click(object sender, EventArgs e)
 		{
 			int pg, yr;
-			Book book;
-			if (newCopy.Checked)
+			if (int.TryParse(pages.Text, out pg))
 			{
-				if ((int.TryParse(pages.Text, out pg)) && (int.TryParse(year.Text, out yr)))
-				{
-					books.
-					
-					books[book].Add(new BookCopy(book));
-					this.Close();
-				}
-			}
-			else if (newBook.Checked)
-			{
-				book = new Book(ISBN.Text, title.Text, author.Text, (short)yr, pg);
-				books.Add(book, new List<BookCopy>());
-				books[book].Add(new BookCopy(book));
+				errorProvider1.SetError(pages, "Not a number");
+				return;
 			}
 			else
 			{
-				MessageBox.Show("New book type not selected", "Error", MessageBoxButtons.OK);
+				errorProvider1.Clear();
+			}
+			if (int.TryParse(year.Text, out yr))
+			{
+				errorProvider2.SetError(year, "Not a number");
+				return;
+			}
+			else
+			{
+				errorProvider1.Clear();
+			}
+
+			if (newCopy.Checked)
+			{
+				Book book = books.FindBook(title.Text, author.Text);
+				if (book != null)
+					books.Add(new BookCopy(book));
+				else
+					MessageBox.Show("Copy with this author and title pair was not found", "Error", MessageBoxButtons.OK);
+			}
+			else
+			{
+				if (newBook.Checked)
+				{
+					Book book = new Book(ISBN.Text, title.Text, author.Text, (short)yr, pg);
+					books.Add(new BookCopy(book));
+				}
+				else
+				{
+					MessageBox.Show("New book type not selected", "Error", MessageBoxButtons.OK);
+				}
 			}
 		}
 	}

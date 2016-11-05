@@ -35,6 +35,23 @@ namespace Library
 			books[copies.First().Book].AddRange(copies);
 		}
 
+		public bool ContainsBook(Book book)
+		{
+			return books.ContainsKey(book);
+		}
+
+		public Book FindBook(string title, string author)
+		{
+			foreach(KeyValuePair<Book, List<BookCopy>> pair in books)
+			{
+				if ((pair.Key.Author.Equals(author)) && (pair.Key.Title.Equals(title)))
+				{
+					return pair.Key;
+				}
+			}
+			return null;
+		}
+
 		public void RemoveCopy(BookCopy copy)
 		{
 			books[copy.Book].Remove(copy);

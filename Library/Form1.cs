@@ -15,7 +15,7 @@ namespace Library
 {
 	public partial class Form1 : Form
 	{
-		Dictionary<Book, List<BookCopy>> books = new Dictionary<Book, List<BookCopy>>();		//List<BookCopy>> -- lazy???
+		BookDictionary books = new BookDictionary();		//List<BookCopy>> -- lazy???
 		List<Reader> readers = new List<Reader>();
 
 		public Form1()
