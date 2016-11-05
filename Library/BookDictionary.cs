@@ -19,6 +19,14 @@ namespace Library
 			}
 		}
 
+		public IEnumerable Keys
+		{
+			get
+			{
+				return books.Keys;
+			}
+		}
+
 		public BookDictionary() { }
 
 		public void Add(BookCopy copy)
@@ -42,11 +50,11 @@ namespace Library
 
 		public Book FindBook(string title, string author)
 		{
-			foreach(KeyValuePair<Book, List<BookCopy>> pair in books)
+			foreach(Book book in books.Keys)
 			{
-				if ((pair.Key.Author.Equals(author)) && (pair.Key.Title.Equals(title)))
+				if ((book.Author.Equals(author)) && (book.Title.Equals(title)))
 				{
-					return pair.Key;
+					return book;
 				}
 			}
 			return null;
@@ -95,6 +103,11 @@ namespace Library
 		IEnumerator IEnumerable.GetEnumerator()
 		{
 			return books.GetEnumerator();
+		}
+
+		public void Clear()
+		{
+			books.Clear();
 		}
 	}
 }
