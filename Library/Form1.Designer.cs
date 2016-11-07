@@ -46,7 +46,10 @@
 			this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-			this.textBox1 = new System.Windows.Forms.TextBox();
+			this.readerInput = new System.Windows.Forms.TextBox();
+			this.label1 = new System.Windows.Forms.Label();
+			this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.tabs.SuspendLayout();
 			this.tabPage1.SuspendLayout();
 			this.tabPage2.SuspendLayout();
@@ -54,7 +57,7 @@
 			// 
 			// addBook
 			// 
-			this.addBook.Location = new System.Drawing.Point(267, 15);
+			this.addBook.Location = new System.Drawing.Point(267, 24);
 			this.addBook.Name = "addBook";
 			this.addBook.Size = new System.Drawing.Size(98, 23);
 			this.addBook.TabIndex = 2;
@@ -67,16 +70,17 @@
 			this.tabs.Controls.Add(this.tabPage1);
 			this.tabs.Controls.Add(this.tabPage2);
 			this.tabs.Cursor = System.Windows.Forms.Cursors.Default;
-			this.tabs.Location = new System.Drawing.Point(12, 31);
+			this.tabs.Location = new System.Drawing.Point(4, 31);
 			this.tabs.Name = "tabs";
 			this.tabs.SelectedIndex = 0;
-			this.tabs.Size = new System.Drawing.Size(380, 226);
+			this.tabs.Size = new System.Drawing.Size(412, 235);
 			this.tabs.TabIndex = 1;
 			this.tabs.SelectedIndexChanged += new System.EventHandler(this.tabs_SelectedIndexChanged);
 			// 
 			// tabPage1
 			// 
 			this.tabPage1.BackColor = System.Drawing.Color.Transparent;
+			this.tabPage1.Controls.Add(this.label1);
 			this.tabPage1.Controls.Add(this.bookList);
 			this.tabPage1.Controls.Add(this.searchBook);
 			this.tabPage1.Controls.Add(this.bookInput);
@@ -84,34 +88,34 @@
 			this.tabPage1.Location = new System.Drawing.Point(4, 22);
 			this.tabPage1.Name = "tabPage1";
 			this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage1.Size = new System.Drawing.Size(372, 200);
+			this.tabPage1.Size = new System.Drawing.Size(404, 209);
 			this.tabPage1.TabIndex = 0;
 			this.tabPage1.Text = "Search Books";
 			// 
 			// tabPage2
 			// 
 			this.tabPage2.BackColor = System.Drawing.Color.Transparent;
-			this.tabPage2.Controls.Add(this.textBox1);
+			this.tabPage2.Controls.Add(this.readerInput);
 			this.tabPage2.Controls.Add(this.readerList);
 			this.tabPage2.Controls.Add(this.addReader);
 			this.tabPage2.Controls.Add(this.searchReaders);
 			this.tabPage2.Location = new System.Drawing.Point(4, 22);
 			this.tabPage2.Name = "tabPage2";
 			this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage2.Size = new System.Drawing.Size(372, 200);
+			this.tabPage2.Size = new System.Drawing.Size(404, 209);
 			this.tabPage2.TabIndex = 1;
 			this.tabPage2.Text = "Search readers";
 			// 
 			// bookInput
 			// 
-			this.bookInput.Location = new System.Drawing.Point(5, 17);
+			this.bookInput.Location = new System.Drawing.Point(5, 26);
 			this.bookInput.Name = "bookInput";
 			this.bookInput.Size = new System.Drawing.Size(175, 20);
 			this.bookInput.TabIndex = 0;
 			// 
 			// searchBook
 			// 
-			this.searchBook.Location = new System.Drawing.Point(186, 15);
+			this.searchBook.Location = new System.Drawing.Point(186, 24);
 			this.searchBook.Name = "searchBook";
 			this.searchBook.Size = new System.Drawing.Size(75, 23);
 			this.searchBook.TabIndex = 1;
@@ -126,44 +130,53 @@
             this.columnHeader3,
             this.columnHeader4,
             this.columnHeader5});
-			this.bookList.Location = new System.Drawing.Point(6, 44);
+			this.bookList.Location = new System.Drawing.Point(6, 53);
 			this.bookList.Name = "bookList";
-			this.bookList.Size = new System.Drawing.Size(360, 150);
+			this.bookList.Size = new System.Drawing.Size(392, 150);
 			this.bookList.TabIndex = 3;
 			this.bookList.UseCompatibleStateImageBehavior = false;
+			this.bookList.View = System.Windows.Forms.View.Details;
 			// 
 			// columnHeader1
 			// 
 			this.columnHeader1.Text = "Author";
+			this.columnHeader1.Width = 80;
 			// 
 			// columnHeader2
 			// 
 			this.columnHeader2.Text = "Title";
+			this.columnHeader2.Width = 120;
 			// 
 			// columnHeader3
 			// 
 			this.columnHeader3.Text = "Published";
+			this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.columnHeader3.Width = 58;
 			// 
 			// columnHeader4
 			// 
 			this.columnHeader4.Text = "ISBN";
+			this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
 			// columnHeader5
 			// 
 			this.columnHeader5.Text = "Pages";
+			this.columnHeader5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.columnHeader5.Width = 45;
 			// 
 			// searchReaders
 			// 
-			this.searchReaders.Location = new System.Drawing.Point(187, 15);
+			this.searchReaders.Location = new System.Drawing.Point(187, 24);
 			this.searchReaders.Name = "searchReaders";
 			this.searchReaders.Size = new System.Drawing.Size(75, 23);
 			this.searchReaders.TabIndex = 1;
 			this.searchReaders.Text = "Search";
 			this.searchReaders.UseVisualStyleBackColor = true;
+			this.searchReaders.Click += new System.EventHandler(this.searchReaders_Click);
 			// 
 			// addReader
 			// 
-			this.addReader.Location = new System.Drawing.Point(268, 15);
+			this.addReader.Location = new System.Drawing.Point(268, 24);
 			this.addReader.Name = "addReader";
 			this.addReader.Size = new System.Drawing.Size(98, 23);
 			this.addReader.TabIndex = 2;
@@ -176,37 +189,65 @@
 			this.readerList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader6,
             this.columnHeader7,
-            this.columnHeader8});
-			this.readerList.Location = new System.Drawing.Point(6, 44);
+            this.columnHeader8,
+            this.columnHeader9,
+            this.columnHeader10});
+			this.readerList.Location = new System.Drawing.Point(6, 53);
 			this.readerList.Name = "readerList";
-			this.readerList.Size = new System.Drawing.Size(360, 150);
+			this.readerList.Size = new System.Drawing.Size(394, 150);
 			this.readerList.TabIndex = 3;
 			this.readerList.UseCompatibleStateImageBehavior = false;
+			this.readerList.View = System.Windows.Forms.View.Details;
 			// 
 			// columnHeader6
 			// 
-			this.columnHeader6.Text = "Name";
+			this.columnHeader6.Text = "First name";
+			this.columnHeader6.Width = 80;
 			// 
 			// columnHeader7
 			// 
-			this.columnHeader7.Text = "Surname";
+			this.columnHeader7.Text = "Last name";
+			this.columnHeader7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.columnHeader7.Width = 80;
 			// 
 			// columnHeader8
 			// 
 			this.columnHeader8.Text = "ID";
+			this.columnHeader8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
-			// textBox1
+			// readerInput
 			// 
-			this.textBox1.Location = new System.Drawing.Point(6, 17);
-			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(175, 20);
-			this.textBox1.TabIndex = 4;
+			this.readerInput.Location = new System.Drawing.Point(6, 26);
+			this.readerInput.Name = "readerInput";
+			this.readerInput.Size = new System.Drawing.Size(175, 20);
+			this.readerInput.TabIndex = 4;
+			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.Location = new System.Drawing.Point(7, 7);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(101, 13);
+			this.label1.TabIndex = 4;
+			this.label1.Text = "Enter search criteria";
+			// 
+			// columnHeader9
+			// 
+			this.columnHeader9.Text = "Date of birth";
+			this.columnHeader9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.columnHeader9.Width = 80;
+			// 
+			// columnHeader10
+			// 
+			this.columnHeader10.Text = "Address";
+			this.columnHeader10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.columnHeader10.Width = 80;
 			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(404, 269);
+			this.ClientSize = new System.Drawing.Size(420, 269);
 			this.Controls.Add(this.tabs);
 			this.Name = "Form1";
 			this.Text = "Form1";
@@ -240,7 +281,10 @@
 		private System.Windows.Forms.ColumnHeader columnHeader6;
 		private System.Windows.Forms.ColumnHeader columnHeader7;
 		private System.Windows.Forms.ColumnHeader columnHeader8;
-		private System.Windows.Forms.TextBox textBox1;
+		private System.Windows.Forms.TextBox readerInput;
+		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.ColumnHeader columnHeader9;
+		private System.Windows.Forms.ColumnHeader columnHeader10;
 	}
 }
 

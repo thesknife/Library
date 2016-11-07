@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace Library
 {
-	public partial class NewReaderFormcs : Form
+	public partial class NewReaderForm : Form
 	{
 		public List<Reader> readers;
 		
-		public NewReaderFormcs(List<Reader> readerList)
+		public NewReaderForm(List<Reader> readerList)
 		{
 			InitializeComponent();
 			readers = readerList;
@@ -31,6 +31,7 @@ namespace Library
 			{
 				readers.Add(reader);
 			}
+			this.Close();
 		}
 	}
 }
