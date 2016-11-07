@@ -34,12 +34,14 @@ namespace Library
 		
 		public void BookTaken(BookCopy copy)
 		{
+			copy.BookTaken(this.ID);
 			TakenBooks.Add(copy);
 		}
 
 		public void BookReturned(BookCopy copy)
 		{
 			TakenBooks.Remove(copy);
+			copy.BookReturned();
 		}
 	}
 }

@@ -9,7 +9,7 @@ namespace Library
 	public class BookCopy : IEquatable<BookCopy>
 	{
 		public Book Book { get; set; }
-		public Reader Reader { get; set; }
+		public int ReaderID { get; set; }
 		public DateTime? DateTaken { get; set; }
 		public DateTime? DateReturn { get; set; }
 		public int ID { get; set; }
@@ -20,16 +20,15 @@ namespace Library
 			Book = book;
 			ID = 0;//-----------------fix
 			Taken = false;
-			Reader = null;
+			ReaderID = 0;
 			DateTaken = null;
 			DateReturn = null;
 		}
 
-		public void BookTaken(Reader reader)
+		public void BookTaken(int ID)
 		{
 			Taken = true;
-			Reader = reader;
-			Reader.BookTaken(this);
+			ReaderID = ID;
 			DateTaken = DateTime.Today;
 			DateReturn = DateTime.Today.AddDays(30);
 		}
@@ -37,8 +36,7 @@ namespace Library
 		public void BookReturned()
 		{
 			Taken = false;
-			Reader.BookReturned(this);
-			Reader = null;
+			ReaderID = 0;
 			DateTaken = null;
 			DateReturn = null;
 		}

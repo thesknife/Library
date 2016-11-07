@@ -78,7 +78,7 @@ namespace Library
 			{
 				if (!copy.Taken)
 				{
-					copy.BookTaken(reader);
+					reader.BookTaken(copy);
 					return;
 				}
 			}
@@ -91,9 +91,9 @@ namespace Library
 				throw new Exception("Book not found");
 			foreach (BookCopy copy in books[key])
 			{
-				if (!copy.Reader.Equals(reader))
+				if (!copy.ReaderID.Equals(reader))
 				{
-					copy.BookReturned();
+					reader.BookReturned(copy);
 					return;
 				}
 			}
