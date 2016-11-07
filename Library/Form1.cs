@@ -21,8 +21,8 @@ namespace Library
 		public Form1()
 		{
 			InitializeComponent();
-			//ReadBooks();
-			//ReadReaders();
+			ReadBooks();
+			ReadReaders();
 		}
 
 		public void ReadBooks()
@@ -33,8 +33,7 @@ namespace Library
 			{
 				using (StreamReader read = new StreamReader("dataBooks.xml"))
 				{
-					XmlSerializer ser = new XmlSerializer(typeof(Dictionary<Book, List<BookCopy>>));
-					books = ser.Deserialize(read) as Dictionary<Book, List<BookCopy>>;
+					XmlDictionarySerialization.Deserialize(read, books);
 				}
 			}
 			catch (IOException ex)
@@ -61,14 +60,29 @@ namespace Library
 			}
 		}
 
-		private void WriteData(string fileName, Type type, IEnumerable collection)
+		private void WriteReaders()
 		{
 			try
 			{
-				using (StreamWriter writeData = new StreamWriter(fileName))
+				using (StreamWriter writeData = new StreamWriter("dataReaders.xml"))
 				{
-					XmlSerializer serializer = new XmlSerializer(type);
-					serializer.Serialize(writeData, collection);
+					XmlSerializer serializer = new XmlSerializer(typeof(List<Reader>));
+					serializer.Serialize(writeData, readers);
+				}
+			}
+			catch (IOException ex)
+			{
+				MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK);
+			}
+		}
+
+		private void WriteBooks()
+		{
+			try
+			{
+				using (StreamWriter writeData = new StreamWriter("dataBooks.xml"))
+				{
+					XmlDictionarySerialization.Serialize(writeData, books);
 				}
 			}
 			catch (IOException ex)
@@ -79,10 +93,10 @@ namespace Library
 
 		private void Form1_FormClosing(object sender, FormClosingEventArgs e)
 		{
-			//if (books.Count != 0)
-			//	WriteData("dataBooks.xml", typeof(Dictionary<Book, List<Book>>), books);
-			//if (readers.Count != 0)
-			//	WriteData("dataReaders.xml", typeof(List<Reader>), readers);
+			if (books.Count != 0)
+				WriteBooks();
+			if (readers.Count != 0)
+				WriteReaders();
 		}
 
 		private void addBook_Click(object sender, EventArgs e)
