@@ -120,8 +120,7 @@ namespace Library
 
 		private void SelectedSearchReaders()
 		{
-			readerList.Items.Clear();
-			readerInput.Clear();
+			
 		}
 
 		private void SelectedSearchBooks()
@@ -132,28 +131,8 @@ namespace Library
 
 		private void addReader_Click(object sender, EventArgs e)
 		{
-			NewReaderForm newReader = new NewReaderForm(readers);
+			NewReaderFormcs newReader = new NewReaderFormcs();
 			newReader.Show();
-		}
-
-		private void searchReaders_Click(object sender, EventArgs e)
-		{
-			readerList.Items.Clear();
-			var results = from reader in readers
-						  where ((reader.FirstName.Contains(readerInput.Text)) ||
-								(reader.LastName.Contains(readerInput.Text)) ||
-								(readerInput.Text.Equals(reader.DateOfBirth.ToShortDateString())) ||
-								(readerInput.Text.Equals(reader.ID.ToString())) ||
-								(reader.Address.Contains(readerInput.Text)))
-								select reader;
-			if (results.Count() != 0)
-			{
-				foreach (Reader reader in results)
-				{
-					readerList.Items.Add(new ListViewItem(new[] { reader.FirstName, reader.LastName, reader.ID.ToString(),
-						reader.DateOfBirth.ToShortDateString(), reader.Address}));
-				}
-			}
 		}
 	}
 }

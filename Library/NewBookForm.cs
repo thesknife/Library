@@ -64,7 +64,6 @@ namespace Library
 					MessageBox.Show("New book type not selected", "Error", MessageBoxButtons.OK);
 				}
 			}
-			this.Close();
 		}
 	}
 }
