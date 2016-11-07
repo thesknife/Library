@@ -10,25 +10,17 @@ namespace Library
 	{
 		public string ISBN { get; set; }
 		public string Title { get; set; }
-		public string[] Author { get; set; }
+		public string Author { get; set; }
 		public short Year { get; set; }
-		public int NumPages { get; set; }
+		public short NumPages { get; set; }
+
 		public Book() { }
 
-		public Book(string ISBN, string title, string[] author, short year, int numPages)
+		public Book(string ISBN, string title, string author, short year, short numPages)
 		{
 			this.ISBN = ISBN;
 			this.Title = title;
 			this.Author = author;
-			this.Year = year;
-			this.NumPages = numPages;
-		}
-
-		public Book(string ISBN, string title, string author, short year, int numPages)
-		{
-			this.ISBN = ISBN;
-			this.Title = title;
-			this.Author[0] = author;
 			this.Year = year;
 			this.NumPages = numPages;
 		}

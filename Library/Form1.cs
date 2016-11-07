@@ -104,5 +104,35 @@ namespace Library
 			NewBookForm newBook = new NewBookForm(books);
 			newBook.Show();
 		}
+
+		private void tabs_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			switch (tabs.SelectedIndex)
+			{
+				case 0:
+					SelectedSearchBooks();
+					break;
+				case 1:
+					SelectedSearchReaders();
+					break;
+			}
+		}
+
+		private void SelectedSearchReaders()
+		{
+			
+		}
+
+		private void SelectedSearchBooks()
+		{
+			bookList.Items.Clear();
+			bookInput.Clear();
+		}
+
+		private void addReader_Click(object sender, EventArgs e)
+		{
+			NewReaderFormcs newReader = new NewReaderFormcs();
+			newReader.Show();
+		}
 	}
 }

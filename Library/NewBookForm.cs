@@ -44,26 +44,6 @@ namespace Library
 
 		private void addBook_Click(object sender, EventArgs e)
 		{
-			int pg, yr;
-			if (int.TryParse(pages.Text, out pg))
-			{
-				errorProvider1.SetError(pages, "Not a number");
-				return;
-			}
-			else
-			{
-				errorProvider1.Clear();
-			}
-			if (int.TryParse(year.Text, out yr))
-			{
-				errorProvider2.SetError(year, "Not a number");
-				return;
-			}
-			else
-			{
-				errorProvider1.Clear();
-			}
-
 			if (newCopy.Checked)
 			{
 				Book book = books.FindBook(title.Text, author.Text);
@@ -76,7 +56,7 @@ namespace Library
 			{
 				if (newBook.Checked)
 				{
-					Book book = new Book(ISBN.Text, title.Text, author.Text, (short)yr, pg);
+					Book book = new Book(ISBN.Text, title.Text, author.Text, Convert.ToInt16(year.Text), Convert.ToInt16(pages.Text));
 					books.Add(new BookCopy(book));
 				}
 				else

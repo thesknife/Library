@@ -8,8 +8,8 @@ namespace Library
 {
 	public class Reader
 	{
-		public string Name { get; set; }
-		public string Surname { get; set; }
+		public string FirstName { get; set; }
+		public string LastName { get; set; }
 		public int ID { get; set; }
 		private Lazy<List<BookCopy>> takenBooks = new Lazy<List<BookCopy>>();		// lazy??
 		public List<BookCopy> TakenBooks
@@ -20,16 +20,17 @@ namespace Library
 			}
 		}
 		//context info, not required for fully functioning program
-		public int AK { get; set; }
 		public DateTime DateOfBirth { get; set; }
-		public string Adress { get; set; }
+		public string Address { get; set; }
 
 
-		public Reader(string name, string surname)
+		public Reader(string firstName, string lastName, DateTime date, string address)
 		{
-			this.Name = name;
-			this.Surname = surname;
-			this.ID = 0; //------fix
+			FirstName = firstName;
+			LastName = lastName;
+			ID = 0; //------fix
+			DateOfBirth = date;
+			Address = address;
 		}
 		
 		public void BookTaken(BookCopy copy)

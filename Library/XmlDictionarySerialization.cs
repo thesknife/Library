@@ -10,7 +10,7 @@ namespace Library
 {
 	public static class XmlDictionarySerialization
 	{
-		private class Pair
+		public class Pair
 		{
 			public Book Key;
 			public List<BookCopy> Value;
