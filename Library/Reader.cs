@@ -23,6 +23,7 @@ namespace Library
 		public DateTime DateOfBirth { get; set; }
 		public string Address { get; set; }
 
+		public Reader() {  }
 
 		public Reader(string firstName, string lastName, DateTime date, string address)
 		{

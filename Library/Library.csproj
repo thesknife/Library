@@ -77,11 +77,11 @@
     <Compile Include="NewBookForm.Designer.cs">
       <DependentUpon>NewBookForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="NewReaderFormcs.cs">
+    <Compile Include="NewReaderForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NewReaderFormcs.Designer.cs">
-      <DependentUpon>NewReaderFormcs.cs</DependentUpon>
+    <Compile Include="NewReaderForm.Designer.cs">
+      <DependentUpon>NewReaderForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -93,8 +93,8 @@
     <EmbeddedResource Include="NewBookForm.resx">
       <DependentUpon>NewBookForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NewReaderFormcs.resx">
-      <DependentUpon>NewReaderFormcs.cs</DependentUpon>
+    <EmbeddedResource Include="NewReaderForm.resx">
+      <DependentUpon>NewReaderForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -1,6 +1,6 @@
 ﻿namespace Library
 {
-	partial class NewReaderFormcs
+	partial class NewReaderForm
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -88,19 +88,19 @@
 			this.label3.AutoSize = true;
 			this.label3.Location = new System.Drawing.Point(9, 71);
 			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(69, 13);
+			this.label3.Size = new System.Drawing.Size(68, 13);
 			this.label3.TabIndex = 6;
-			this.label3.Text = "Date of Birth:";
+			this.label3.Text = "Date of birth:";
 			// 
 			// date
 			// 
 			this.date.Format = System.Windows.Forms.DateTimePickerFormat.Short;
 			this.date.Location = new System.Drawing.Point(84, 67);
-			this.date.MaxDate = System.DateTime.Today;
+			this.date.MaxDate = new System.DateTime(2016, 11, 7, 0, 0, 0, 0);
 			this.date.Name = "date";
 			this.date.Size = new System.Drawing.Size(100, 20);
 			this.date.TabIndex = 7;
-			this.date.Value = System.DateTime.Today;
+			this.date.Value = new System.DateTime(2016, 11, 7, 0, 0, 0, 0);
 			// 
 			// label4
 			// 
@@ -118,7 +118,7 @@
 			this.address.Size = new System.Drawing.Size(100, 20);
 			this.address.TabIndex = 8;
 			// 
-			// NewReaderFormcs
+			// NewReaderForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -132,7 +132,7 @@
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.firstName);
 			this.Controls.Add(this.add);
-			this.Name = "NewReaderFormcs";
+			this.Name = "NewReaderForm";
 			this.Text = "NewReaderFormcs";
 			this.ResumeLayout(false);
 			this.PerformLayout();
