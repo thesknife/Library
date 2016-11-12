@@ -22,7 +22,7 @@ namespace Library
 
 		private void add_Click(object sender, EventArgs e)
 		{
-			Reader reader = new Reader(firstName.Text, lastName.Text, date.Value, address.Text);
+			Reader reader = new Reader(firstName.Text, date.Value, address.Text);
 			if (readers.Contains(reader))
 			{
 				MessageBox.Show("This reader already exists", "Error", MessageBoxButtons.OK);

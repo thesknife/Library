@@ -92,7 +92,7 @@
 			// label1
 			// 
 			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(69, 99);
+			this.label1.Location = new System.Drawing.Point(74, 99);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(41, 13);
 			this.label1.TabIndex = 11;
@@ -101,7 +101,7 @@
 			// label2
 			// 
 			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(80, 125);
+			this.label2.Location = new System.Drawing.Point(85, 125);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(30, 13);
 			this.label2.TabIndex = 8;
@@ -128,11 +128,11 @@
 			// label5
 			// 
 			this.label5.AutoSize = true;
-			this.label5.Location = new System.Drawing.Point(35, 203);
+			this.label5.Location = new System.Drawing.Point(24, 200);
 			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(83, 13);
+			this.label5.Size = new System.Drawing.Size(91, 13);
 			this.label5.TabIndex = 11;
-			this.label5.Text = "Nuber of pages:";
+			this.label5.Text = "Number of pages:";
 			// 
 			// addBook
 			// 

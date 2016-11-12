@@ -15,20 +15,32 @@ namespace Library
 		public int ID { get; set; }
 		public bool Taken { get; set; }
 
+		public BookCopy() { }
+
 		public BookCopy(Book book)
 		{
 			Book = book;
-			ID = 0;//-----------------fix
+			ID = GetHashCode();
 			Taken = false;
 			ReaderID = 0;
 			DateTaken = null;
 			DateReturn = null;
 		}
 
-		public void BookTaken(int ID)
+		public BookCopy(Book book, int id, bool status, int reader, DateTime taken, DateTime returned)
+		{
+			Book = book;
+			ID = id;
+			Taken = status;
+			ReaderID = reader;
+			DateTaken = taken;
+			DateReturn = returned;
+		}
+
+		public void BookTaken(int id)
 		{
 			Taken = true;
-			ReaderID = ID;
+			ReaderID = id;
 			DateTaken = DateTime.Today;
 			DateReturn = DateTime.Today.AddDays(30);
 		}

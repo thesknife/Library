@@ -6,32 +6,23 @@ using System.Threading.Tasks;
 
 namespace Library
 {
-	public class Reader
+	public class Reader : IEquatable<Reader>
 	{
-		public string FirstName { get; set; }
-		public string LastName { get; set; }
+		public string Name { get; set; }
 		public int ID { get; set; }
-		private Lazy<List<BookCopy>> takenBooks = new Lazy<List<BookCopy>>();		// lazy??
-		public List<BookCopy> TakenBooks
-		{
-			get
-			{
-				return takenBooks.Value;
-			}
-		}
-		//context info, not required for fully functioning program
+		public List<BookCopy> TakenBooks { get; set; }
 		public DateTime DateOfBirth { get; set; }
 		public string Address { get; set; }
 
 		public Reader() {  }
 
-		public Reader(string firstName, string lastName, DateTime date, string address)
+		public Reader(string name, DateTime date, string address)
 		{
-			FirstName = firstName;
-			LastName = lastName;
-			ID = 0; //------fix
+			Name = name;
+			ID = GetHashCode();
 			DateOfBirth = date;
 			Address = address;
+			TakenBooks = new List<BookCopy>();
 		}
 		
 		public void BookTaken(BookCopy copy)
@@ -44,6 +35,11 @@ namespace Library
 		{
 			TakenBooks.Remove(copy);
 			copy.BookReturned();
+		}
+
+		public bool Equals(Reader other)
+		{
+			return this.Name.Equals(other.Name) || (this.ID.Equals(other.ID));
 		}
 	}
 }

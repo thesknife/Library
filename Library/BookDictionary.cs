@@ -19,10 +19,12 @@ namespace Library
 			}
 		}
 
-		public IEnumerable Keys
+		public /*List<Book>*/ IEnumerable Keys
 		{
 			get
 			{
+				//var keys = books.Keys;
+				
 				return books.Keys;
 			}
 		}
@@ -53,6 +55,18 @@ namespace Library
 			foreach(Book book in books.Keys)
 			{
 				if ((book.Author.Equals(author)) && (book.Title.Equals(title)))
+				{
+					return book;
+				}
+			}
+			return null;
+		}
+
+		public Book FindBook(string isbn)
+		{
+			foreach (Book book in books.Keys)
+			{
+				if ((book.Author.Equals(isbn)))
 				{
 					return book;
 				}

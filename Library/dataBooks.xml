@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfPair xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Pair>
+    <Key>
+      <ISBN>789456123</ISBN>
+      <Title>Vilko Valanda</Title>
+      <Author>Andrius Tapinas</Author>
+      <Year>2013</Year>
+      <NumPages>450</NumPages>
+    </Key>
+    <Value>
+      <BookCopy>
+        <Book>
+          <ISBN>789456123</ISBN>
+          <Title>Vilko Valanda</Title>
+          <Author>Andrius Tapinas</Author>
+          <Year>2013</Year>
+          <NumPages>450</NumPages>
+        </Book>
+        <ReaderID>0</ReaderID>
+        <DateTaken xsi:nil="true" />
+        <DateReturn xsi:nil="true" />
+        <ID>57352375</ID>
+        <Taken>false</Taken>
+      </BookCopy>
+      <BookCopy>
+        <Book>
+          <ISBN>789456123</ISBN>
+          <Title>Vilko Valanda</Title>
+          <Author>Andrius Tapinas</Author>
+          <Year>2013</Year>
+          <NumPages>450</NumPages>
+        </Book>
+        <ReaderID>0</ReaderID>
+        <DateTaken xsi:nil="true" />
+        <DateReturn xsi:nil="true" />
+        <ID>47066262</ID>
+        <Taken>false</Taken>
+      </BookCopy>
+    </Value>
+  </Pair>
+  <Pair>
+    <Key>
+      <ISBN>789456122</ISBN>
+      <Title>Maro Diena</Title>
+      <Author>Andrius Tapinas</Author>
+      <Year>2015</Year>
+      <NumPages>320</NumPages>
+    </Key>
+    <Value>
+      <BookCopy>
+        <Book>
+          <ISBN>789456122</ISBN>
+          <Title>Maro Diena</Title>
+          <Author>Andrius Tapinas</Author>
+          <Year>2015</Year>
+          <NumPages>320</NumPages>
+        </Book>
+        <ReaderID>0</ReaderID>
+        <DateTaken xsi:nil="true" />
+        <DateReturn xsi:nil="true" />
+        <ID>41014879</ID>
+        <Taken>false</Taken>
+      </BookCopy>
+    </Value>
+  </Pair>
+  <Pair>
+    <Key>
+      <ISBN>123456781</ISBN>
+      <Title>A Game of Thrones</Title>
+      <Author>George R.R. Martin</Author>
+      <Year>2011</Year>
+      <NumPages>750</NumPages>
+    </Key>
+    <Value>
+      <BookCopy>
+        <Book>
+          <ISBN>123456781</ISBN>
+          <Title>A Game of Thrones</Title>
+          <Author>George R.R. Martin</Author>
+          <Year>2011</Year>
+          <NumPages>750</NumPages>
+        </Book>
+        <ReaderID>0</ReaderID>
+        <DateTaken xsi:nil="true" />
+        <DateReturn xsi:nil="true" />
+        <ID>25209742</ID>
+        <Taken>false</Taken>
+      </BookCopy>
+    </Value>
+  </Pair>
+  <Pair>
+    <Key>
+      <ISBN>123456782</ISBN>
+      <Title>A Dance With Dragons</Title>
+      <Author>George R.R. Martin</Author>
+      <Year>2011</Year>
+      <NumPages>1200</NumPages>
+    </Key>
+    <Value>
+      <BookCopy>
+        <Book>
+          <ISBN>123456782</ISBN>
+          <Title>A Dance With Dragons</Title>
+          <Author>George R.R. Martin</Author>
+          <Year>2011</Year>
+          <NumPages>1200</NumPages>
+        </Book>
+        <ReaderID>0</ReaderID>
+        <DateTaken xsi:nil="true" />
+        <DateReturn xsi:nil="true" />
+        <ID>31884011</ID>
+        <Taken>false</Taken>
+      </BookCopy>
+      <BookCopy>
+        <Book>
+          <ISBN>123456782</ISBN>
+          <Title>A Dance With Dragons</Title>
+          <Author>George R.R. Martin</Author>
+          <Year>2011</Year>
+          <NumPages>1200</NumPages>
+        </Book>
+        <ReaderID>0</ReaderID>
+        <DateTaken xsi:nil="true" />
+        <DateReturn xsi:nil="true" />
+        <ID>50668565</ID>
+        <Taken>false</Taken>
+      </BookCopy>
+    </Value>
+  </Pair>
+</ArrayOfPair>
