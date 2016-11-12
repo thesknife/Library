@@ -85,18 +85,18 @@
 			this.dataGridViewReaders = new System.Windows.Forms.DataGridView();
 			this.DateOfBirth = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Taken = new System.Windows.Forms.DataGridViewButtonColumn();
-			this.New = new System.Windows.Forms.DataGridViewButtonColumn();
-			this.Copies = new System.Windows.Forms.DataGridViewButtonColumn();
-			this.authorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.titleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.iSBNDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.yearDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.numPagesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.bookBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.readerBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.authorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.titleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.iSBNDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.yearDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.numPagesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Copies = new System.Windows.Forms.DataGridViewButtonColumn();
+			this.New = new System.Windows.Forms.DataGridViewButtonColumn();
 			this.tabs.SuspendLayout();
 			this.tabPage1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridViewBooks)).BeginInit();
@@ -129,7 +129,7 @@
 			this.tabs.Location = new System.Drawing.Point(0, -3);
 			this.tabs.Name = "tabs";
 			this.tabs.SelectedIndex = 0;
-			this.tabs.Size = new System.Drawing.Size(480, 235);
+			this.tabs.Size = new System.Drawing.Size(541, 235);
 			this.tabs.TabIndex = 1;
 			this.tabs.SelectedIndexChanged += new System.EventHandler(this.tabs_SelectedIndexChanged);
 			// 
@@ -145,7 +145,7 @@
 			this.tabPage1.Location = new System.Drawing.Point(4, 22);
 			this.tabPage1.Name = "tabPage1";
 			this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage1.Size = new System.Drawing.Size(472, 209);
+			this.tabPage1.Size = new System.Drawing.Size(533, 209);
 			this.tabPage1.TabIndex = 0;
 			this.tabPage1.Text = "Search Books";
 			// 
@@ -159,8 +159,8 @@
             this.iSBNDataGridViewTextBoxColumn,
             this.yearDataGridViewTextBoxColumn,
             this.numPagesDataGridViewTextBoxColumn,
-            this.New,
-            this.Copies});
+            this.Copies,
+            this.New});
 			this.dataGridViewBooks.DataSource = this.bookBindingSource;
 			this.dataGridViewBooks.Dock = System.Windows.Forms.DockStyle.Bottom;
 			this.dataGridViewBooks.Location = new System.Drawing.Point(3, 56);
@@ -169,8 +169,9 @@
 			this.dataGridViewBooks.ReadOnly = true;
 			this.dataGridViewBooks.RowHeadersVisible = false;
 			this.dataGridViewBooks.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.dataGridViewBooks.Size = new System.Drawing.Size(466, 150);
+			this.dataGridViewBooks.Size = new System.Drawing.Size(527, 150);
 			this.dataGridViewBooks.TabIndex = 5;
+			this.dataGridViewBooks.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewBooks_CellContentClick);
 			// 
 			// label1
 			// 
@@ -635,19 +636,34 @@
 			this.Taken.Text = "View";
 			this.Taken.Width = 90;
 			// 
-			// New
+			// bookBindingSource
 			// 
-			this.New.HeaderText = "Add";
-			this.New.Name = "New";
-			this.New.ReadOnly = true;
-			this.New.Width = 45;
+			this.bookBindingSource.DataSource = typeof(Library.Book);
 			// 
-			// Copies
+			// nameDataGridViewTextBoxColumn
 			// 
-			this.Copies.HeaderText = "Copies";
-			this.Copies.Name = "Copies";
-			this.Copies.ReadOnly = true;
-			this.Copies.Width = 45;
+			this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+			this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+			this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+			this.nameDataGridViewTextBoxColumn.Width = 80;
+			// 
+			// iDDataGridViewTextBoxColumn
+			// 
+			this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
+			this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
+			this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
+			this.iDDataGridViewTextBoxColumn.Width = 60;
+			// 
+			// addressDataGridViewTextBoxColumn
+			// 
+			this.addressDataGridViewTextBoxColumn.DataPropertyName = "Address";
+			this.addressDataGridViewTextBoxColumn.HeaderText = "Address";
+			this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
+			this.addressDataGridViewTextBoxColumn.Width = 80;
+			// 
+			// readerBindingSource
+			// 
+			this.readerBindingSource.DataSource = typeof(Library.Reader);
 			// 
 			// authorDataGridViewTextBoxColumn
 			// 
@@ -689,40 +705,31 @@
 			this.numPagesDataGridViewTextBoxColumn.ReadOnly = true;
 			this.numPagesDataGridViewTextBoxColumn.Width = 45;
 			// 
-			// bookBindingSource
+			// Copies
 			// 
-			this.bookBindingSource.DataSource = typeof(Library.Book);
+			this.Copies.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+			this.Copies.HeaderText = "View copies";
+			this.Copies.Name = "Copies";
+			this.Copies.ReadOnly = true;
+			this.Copies.Text = "Copies";
+			this.Copies.UseColumnTextForButtonValue = true;
+			this.Copies.Width = 70;
 			// 
-			// nameDataGridViewTextBoxColumn
+			// New
 			// 
-			this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-			this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-			this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-			this.nameDataGridViewTextBoxColumn.Width = 80;
-			// 
-			// iDDataGridViewTextBoxColumn
-			// 
-			this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
-			this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
-			this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
-			this.iDDataGridViewTextBoxColumn.Width = 60;
-			// 
-			// addressDataGridViewTextBoxColumn
-			// 
-			this.addressDataGridViewTextBoxColumn.DataPropertyName = "Address";
-			this.addressDataGridViewTextBoxColumn.HeaderText = "Address";
-			this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
-			this.addressDataGridViewTextBoxColumn.Width = 80;
-			// 
-			// readerBindingSource
-			// 
-			this.readerBindingSource.DataSource = typeof(Library.Reader);
+			this.New.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+			this.New.HeaderText = "Add new copy";
+			this.New.Name = "New";
+			this.New.ReadOnly = true;
+			this.New.Text = "Add ";
+			this.New.UseColumnTextForButtonValue = true;
+			this.New.Width = 81;
 			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(480, 232);
+			this.ClientSize = new System.Drawing.Size(541, 232);
 			this.Controls.Add(this.tabs);
 			this.Name = "Form1";
 			this.Text = "Library";
@@ -813,8 +820,8 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn iSBNDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn yearDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn numPagesDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewButtonColumn New;
 		private System.Windows.Forms.DataGridViewButtonColumn Copies;
+		private System.Windows.Forms.DataGridViewButtonColumn New;
 	}
 }
 

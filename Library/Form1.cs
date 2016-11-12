@@ -224,6 +224,8 @@ namespace Library
 					reader.Address
 				});
 				dataGridViewReaders.DataSource = readerBindingSource;
+				dataGridViewReaders.AutoResizeColumns();
+				dataGridViewReaders.AutoResizeRows();
 			}
 		}
 
@@ -370,5 +372,36 @@ namespace Library
 			}
 			return null;
 		}
+
+		private void dataGridViewBooks_CellContentClick(object sender, DataGridViewCellEventArgs e)
+		{
+			var senderGrid = (DataGridView)sender;
+
+			if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
+			{
+				if (e.ColumnIndex == 6)
+					NewCopy(senderGrid);            //use delegate?
+				else
+					ShowCopies(senderGrid);
+			}
+		}
+
+		private void ShowCopies(DataGridView sender)
+		{
+			Book book = books.FindBook(sender.SelectedRows[0].Cells[1].Value.ToString(), sender.SelectedRows[0].Cells[0].Value.ToString());
+			CopiesForm copiesForm = new CopiesForm(books.GetBookCopyList(book));
+			copiesForm.Show();
+		}
+
+		private void NewCopy(DataGridView sender)
+		{
+			Book book = books.FindBook(sender.SelectedRows[0].Cells[1].Value.ToString(), sender.SelectedRows[0].Cells[0].Value.ToString());
+			if (book != null)
+			{
+				books.Add(new BookCopy(book));
+				MessageBox.Show("New Copy added");
+			}
+		}
+		
 	}
 }

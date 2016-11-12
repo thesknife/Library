@@ -40,8 +40,6 @@
 			this.label4 = new System.Windows.Forms.Label();
 			this.label5 = new System.Windows.Forms.Label();
 			this.addBook = new System.Windows.Forms.Button();
-			this.newBook = new System.Windows.Forms.RadioButton();
-			this.newCopy = new System.Windows.Forms.RadioButton();
 			this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
 			this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
 			((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -50,40 +48,35 @@
 			// 
 			// author
 			// 
-			this.author.Enabled = false;
-			this.author.Location = new System.Drawing.Point(131, 96);
+			this.author.Location = new System.Drawing.Point(117, 12);
 			this.author.Name = "author";
 			this.author.Size = new System.Drawing.Size(173, 20);
 			this.author.TabIndex = 2;
 			// 
 			// title
 			// 
-			this.title.Enabled = false;
-			this.title.Location = new System.Drawing.Point(131, 122);
+			this.title.Location = new System.Drawing.Point(117, 38);
 			this.title.Name = "title";
 			this.title.Size = new System.Drawing.Size(173, 20);
 			this.title.TabIndex = 3;
 			// 
 			// ISBN
 			// 
-			this.ISBN.Enabled = false;
-			this.ISBN.Location = new System.Drawing.Point(131, 148);
+			this.ISBN.Location = new System.Drawing.Point(117, 64);
 			this.ISBN.Name = "ISBN";
 			this.ISBN.Size = new System.Drawing.Size(173, 20);
 			this.ISBN.TabIndex = 4;
 			// 
 			// pages
 			// 
-			this.pages.Enabled = false;
-			this.pages.Location = new System.Drawing.Point(131, 200);
+			this.pages.Location = new System.Drawing.Point(117, 116);
 			this.pages.Name = "pages";
 			this.pages.Size = new System.Drawing.Size(173, 20);
 			this.pages.TabIndex = 6;
 			// 
 			// year
 			// 
-			this.year.Enabled = false;
-			this.year.Location = new System.Drawing.Point(131, 174);
+			this.year.Location = new System.Drawing.Point(117, 90);
 			this.year.MaxLength = 4;
 			this.year.Name = "year";
 			this.year.Size = new System.Drawing.Size(173, 20);
@@ -92,7 +85,7 @@
 			// label1
 			// 
 			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(74, 99);
+			this.label1.Location = new System.Drawing.Point(60, 15);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(41, 13);
 			this.label1.TabIndex = 11;
@@ -101,7 +94,7 @@
 			// label2
 			// 
 			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(85, 125);
+			this.label2.Location = new System.Drawing.Point(71, 41);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(30, 13);
 			this.label2.TabIndex = 8;
@@ -110,7 +103,7 @@
 			// label3
 			// 
 			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(80, 151);
+			this.label3.Location = new System.Drawing.Point(66, 67);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(35, 13);
 			this.label3.TabIndex = 9;
@@ -119,7 +112,7 @@
 			// label4
 			// 
 			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(35, 177);
+			this.label4.Location = new System.Drawing.Point(21, 93);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(80, 13);
 			this.label4.TabIndex = 10;
@@ -128,7 +121,7 @@
 			// label5
 			// 
 			this.label5.AutoSize = true;
-			this.label5.Location = new System.Drawing.Point(24, 200);
+			this.label5.Location = new System.Drawing.Point(10, 116);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(91, 13);
 			this.label5.TabIndex = 11;
@@ -136,37 +129,13 @@
 			// 
 			// addBook
 			// 
-			this.addBook.Location = new System.Drawing.Point(38, 238);
+			this.addBook.Location = new System.Drawing.Point(13, 154);
 			this.addBook.Name = "addBook";
-			this.addBook.Size = new System.Drawing.Size(266, 23);
+			this.addBook.Size = new System.Drawing.Size(277, 23);
 			this.addBook.TabIndex = 0;
 			this.addBook.Text = "Add new book";
 			this.addBook.UseVisualStyleBackColor = true;
 			this.addBook.Click += new System.EventHandler(this.addBook_Click);
-			// 
-			// newBook
-			// 
-			this.newBook.AutoSize = true;
-			this.newBook.Location = new System.Drawing.Point(38, 32);
-			this.newBook.Name = "newBook";
-			this.newBook.Size = new System.Drawing.Size(103, 17);
-			this.newBook.TabIndex = 1;
-			this.newBook.TabStop = true;
-			this.newBook.Text = "Add a new book";
-			this.newBook.UseVisualStyleBackColor = true;
-			this.newBook.CheckedChanged += new System.EventHandler(this.newBook_CheckedChanged);
-			// 
-			// newCopy
-			// 
-			this.newCopy.AutoSize = true;
-			this.newCopy.Location = new System.Drawing.Point(38, 55);
-			this.newCopy.Name = "newCopy";
-			this.newCopy.Size = new System.Drawing.Size(171, 17);
-			this.newCopy.TabIndex = 2;
-			this.newCopy.TabStop = true;
-			this.newCopy.Text = "Add a copy of an existing book";
-			this.newCopy.UseVisualStyleBackColor = true;
-			this.newCopy.CheckedChanged += new System.EventHandler(this.newCopy_CheckedChanged);
 			// 
 			// errorProvider1
 			// 
@@ -180,9 +149,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(336, 273);
-			this.Controls.Add(this.newCopy);
-			this.Controls.Add(this.newBook);
+			this.ClientSize = new System.Drawing.Size(298, 189);
 			this.Controls.Add(this.addBook);
 			this.Controls.Add(this.label5);
 			this.Controls.Add(this.label4);
@@ -215,8 +182,6 @@
 		private System.Windows.Forms.Label label4;
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.Button addBook;
-		private System.Windows.Forms.RadioButton newBook;
-		private System.Windows.Forms.RadioButton newCopy;
 		private System.Windows.Forms.ErrorProvider errorProvider1;
 		private System.Windows.Forms.ErrorProvider errorProvider2;
 	}
