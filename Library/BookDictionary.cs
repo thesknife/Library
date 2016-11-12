@@ -19,13 +19,16 @@ namespace Library
 			}
 		}
 
-		public /*List<Book>*/ IEnumerable Keys
+		public List<Book>  Keys
 		{
 			get
 			{
-				//var keys = books.Keys;
-				
-				return books.Keys;
+				List<Book> result = new List<Book>();
+				foreach (Book book in books.Keys)
+				{
+					result.Add(book);
+				}
+				return result;
 			}
 		}
 

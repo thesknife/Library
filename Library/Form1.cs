@@ -35,7 +35,7 @@ namespace Library
 
 			/*
 			 * Metodu ilgiai
-			 * linq i metodus
+			 * ++++++++++++++linq i metodus
 			 * Panaikint take/close tabus, inkorporuot i pirmus 2
 			 * Knygose:
 			 *		prideti knyga
@@ -252,14 +252,11 @@ namespace Library
 		private void searchBook_Click(object sender, EventArgs e)
 		{
 			bookList.Items.Clear();
-			var results = books.Keys;
-			IEnumerable<Book> results = from Book book in books.Keys
-						  where ((book.Author.Contains(bookInput.Text)) ||
+			var results = books.Keys.Where(book => ((book.Author.Contains(bookInput.Text)) ||
 								(book.Title.Contains(bookInput.Text)) ||
 								(book.ISBN.Contains(bookInput.Text)) ||
 								(bookInput.Text.Equals(book.Year.ToString())) ||
-								(bookInput.Text.Equals(book.NumPages.ToString())))
-						  select book;
+								(bookInput.Text.Equals(book.NumPages.ToString()))));
 			if (results.Count() != 0)
 			{
 				foreach (Book book in results)
