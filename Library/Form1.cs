@@ -181,42 +181,18 @@ namespace Library
 
 		public void RefreshSearchReaders()
 		{
-			readerList.Items.Clear();
-			if (readers.Count != 0)
-			{
-				readerList.View = View.Details;
-				foreach (Reader reader in readers)
-				{
-					readerList.Items.Add(new ListViewItem(new[] { reader.Name, reader.ID.ToString(),
-						reader.DateOfBirth.ToShortDateString(), reader.Address, reader.TakenBooks.Count.ToString()}));
-				}
-			}
-			else
-			{
-				readerList.Items.Add(new ListViewItem("No readers to display"));
-				readerList.View = View.Tile;
-			}
-		readerInput.Clear();
+			readerBindingSource.ResetBindings(false);
+			readerBindingSource.DataSource = readers.Select(reader => new { reader.Name, reader.ID, reader.DateOfBirth, reader.Address }).ToList();
+			dataGridViewReaders.DataSource = readerBindingSource;
+			readerInput.Clear();
 		}
 
 		public void RefreshSearchBooks()
 		{
-			bookList.Items.Clear();
-
-			if (books.Count != 0)
-			{
-				bookList.View = View.Details;
-				foreach (Book book in books.Keys)
-				{
-					bookList.Items.Add(new ListViewItem(new[] { book.Author, book.Title, book.ISBN, book.Year.ToString(),
-						book.NumPages.ToString(), books.GetBookCopyList(book).Count.ToString()}));
-				}
-			}
-			else
-			{
-				bookList.Items.Add(new ListViewItem("No books to display"));
-				bookList.View = View.Tile;
-			}
+			bookBindingSource.ResetBindings(false);
+			bookBindingSource.DataSource = books.Keys.Select(book => new { book.Author, book.Title,
+																				book.ISBN, book.Year, book.NumPages }).ToList();
+			dataGridViewBooks.DataSource = bookBindingSource;
 			bookInput.Clear();
 		}
 
@@ -234,24 +210,26 @@ namespace Library
 
 		private void searchReaders_Click(object sender, EventArgs e)
 		{
-			readerList.Items.Clear();
+			readerBindingSource.ResetBindings(false);
 			var results = readers.Where(reader => ((reader.Name.Contains(readerInput.Text)) ||
 								(readerInput.Text.Equals(reader.DateOfBirth.ToShortDateString())) ||
 								(readerInput.Text.Equals(reader.ID.ToString())) ||
 								(reader.Address.Contains(readerInput.Text))));
 			if (results.Count() != 0)
 			{
-				foreach (Reader reader in results)
-				{
-					readerList.Items.Add(new ListViewItem(new[] { reader.Name, reader.ID.ToString(),
-						reader.DateOfBirth.ToShortDateString(), reader.Address, reader.TakenBooks.Count.ToString()}));
-				}
+				readerBindingSource.DataSource = results.Select(reader => new {
+					reader.Name,
+					reader.ID,
+					reader.DateOfBirth,
+					reader.Address
+				});
+				dataGridViewReaders.DataSource = readerBindingSource;
 			}
 		}
 
 		private void searchBook_Click(object sender, EventArgs e)
 		{
-			bookList.Items.Clear();
+			bookBindingSource.ResetBindings(false);
 			var results = books.Keys.Where(book => ((book.Author.Contains(bookInput.Text)) ||
 								(book.Title.Contains(bookInput.Text)) ||
 								(book.ISBN.Contains(bookInput.Text)) ||
@@ -259,11 +237,15 @@ namespace Library
 								(bookInput.Text.Equals(book.NumPages.ToString()))));
 			if (results.Count() != 0)
 			{
-				foreach (Book book in results)
+				bookBindingSource.DataSource = results.Select(book => new
 				{
-					bookList.Items.Add(new ListViewItem(new[] { book.Author, book.Title, book.ISBN, book.Year.ToString(),
-						book.NumPages.ToString(), books.GetBookCopyList(book).Count.ToString() }));
-				}
+					book.Author,
+					book.Title,
+					book.ISBN,
+					book.Year,
+					book.NumPages,
+				});
+				dataGridViewBooks.DataSource = bookBindingSource;
 			}
 		}
 

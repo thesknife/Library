@@ -3,15 +3,52 @@
   <Reader>
     <Name>Jonas Jonaitis</Name>
     <ID>64145261</ID>
-    <TakenBooks />
+    <TakenBooks>
+      <BookCopy>
+        <Book>
+          <ISBN>789456123</ISBN>
+          <Title>Vilko Valanda</Title>
+          <Author>Andrius Tapinas</Author>
+          <Year>2013</Year>
+          <NumPages>450</NumPages>
+        </Book>
+        <ReaderID>64145261</ReaderID>
+        <DateTaken>2016-11-09T00:00:00+02:00</DateTaken>
+        <DateReturn>2016-12-09T00:00:00+02:00</DateReturn>
+        <ID>57352375</ID>
+        <Taken>true</Taken>
+      </BookCopy>
+    </TakenBooks>
     <DateOfBirth>1994-07-21T00:00:00</DateOfBirth>
     <Address>Gatvė 8</Address>
   </Reader>
   <Reader>
     <Name>Petras Petraitis</Name>
     <ID>12710006</ID>
-    <TakenBooks />
+    <TakenBooks>
+      <BookCopy>
+        <Book>
+          <ISBN>123456781</ISBN>
+          <Title>A Game of Thrones</Title>
+          <Author>George R.R. Martin</Author>
+          <Year>2011</Year>
+          <NumPages>750</NumPages>
+        </Book>
+        <ReaderID>12710006</ReaderID>
+        <DateTaken>2016-11-09T00:00:00+02:00</DateTaken>
+        <DateReturn>2016-12-09T00:00:00+02:00</DateReturn>
+        <ID>25209742</ID>
+        <Taken>true</Taken>
+      </BookCopy>
+    </TakenBooks>
     <DateOfBirth>2012-07-12T00:00:00</DateOfBirth>
     <Address>Puikioji Gatvė 4</Address>
+  </Reader>
+  <Reader>
+    <Name>Antanas Burokas</Name>
+    <ID>38018250</ID>
+    <TakenBooks />
+    <DateOfBirth>2015-06-10T00:00:00</DateOfBirth>
+    <Address>Geroji g. 85</Address>
   </Reader>
 </ArrayOfReader>
