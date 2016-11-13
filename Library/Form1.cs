@@ -34,12 +34,12 @@ namespace Library
 			*/
 
 			/*
-			 * Metodu ilgiai
+			 * +++++++++++++++++++++++Metodu ilgiai
 			 * ++++++++++++++linq i metodus
-			 * Panaikint take/close tabus, inkorporuot i pirmus 2
+			 * +++++++++++Panaikint take/close tabus, inkorporuot i pirmus 2
 			 * Knygose:
 			 *		+++++++++++++prideti knyga
-			 *		Paimti knyga
+			 *		+++++++++++++Paimti knyga
 			 *	++++++++++++++++sarasas paimtu knygu (mygtukas prie reader)
 			 *	++++++++++++++++sarasas visu kopiju
 			 *	fix id
@@ -153,19 +153,7 @@ namespace Library
 				case 1:
 					RefreshSearchReaders();
 					break;
-				case 2:
-					RefreshTakeBook();
-					break;
 			}
-		}
-
-		void RefreshTakeBook()
-		{
-			authorInput.Clear();
-			titleInput.Clear();
-			ISBNInput.Clear();
-			nameInput.Clear();
-			IDInput.Clear();
 		}
 
 		public void RefreshSearchReaders()
@@ -240,7 +228,7 @@ namespace Library
 			}
 		}
 
-		private void takeBook_Click(object sender, EventArgs e)
+		/*private void takeBook_Click(object sender, EventArgs e)
 		{
 			Reader read = null;
 			if (IDInput.Text.Length != 0)
@@ -368,10 +356,34 @@ namespace Library
 
 			if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
 			{
-				if (e.ColumnIndex == 6)
+				if (e.ColumnIndex == 7)
 					NewCopy(senderGrid);            //use delegate?
-				else 
-					ShowCopies(senderGrid);
+				else
+				{
+					if (e.ColumnIndex == 6)
+						ShowReaders(senderGrid);
+					else
+						ShowCopies(senderGrid);
+				}
+			}
+		}
+
+		private void ShowReaders(DataGridView sender)
+		{
+			ReadersForm readersForm = new ReadersForm(readers, sender.SelectedRows[0].Cells[0].Value.ToString(), sender.SelectedRows[0].Cells[1].Value.ToString());
+			readersForm.Show();
+			readersForm.BookTake += ReadersForm_BookTake;
+		}
+
+		private void ReadersForm_BookTake(object sender, BookTakeEventArgs e)
+		{
+			try
+			{
+				books.BookCopyTaken(books.FindBook(e.title, e.author), FindReader(e.readerID));
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message);
 			}
 		}
 
@@ -408,8 +420,6 @@ namespace Library
 
 		private void TakenBooksForm_BookReturn(object sender, BookReturnEventArgs e)
 		{
-			//check if works, especialy with copies in dictionary and reader list
-			//MessageBox.Show(e.copyID + " " + e.readerID);
 			books.BookCopyReturned(books.FindCopy(e.copyID), FindReader(e.readerID));
 		}
 		//Note: when taking book, create new form for taking in this forms, not in those, where they are taken.
