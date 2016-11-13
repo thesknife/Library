@@ -35,12 +35,6 @@
 			this.label4 = new System.Windows.Forms.Label();
 			this.label5 = new System.Windows.Forms.Label();
 			this.dataGridView1 = new System.Windows.Forms.DataGridView();
-			this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.takenDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-			this.readerIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dateTakenDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dateReturnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.bookCopyBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.author = new System.Windows.Forms.Label();
 			this.title = new System.Windows.Forms.Label();
 			this.isbn = new System.Windows.Forms.Label();
@@ -48,6 +42,12 @@
 			this.pages = new System.Windows.Forms.Label();
 			this.label6 = new System.Windows.Forms.Label();
 			this.copyCount = new System.Windows.Forms.Label();
+			this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.takenDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+			this.readerIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.dateTakenDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.dateReturnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.bookCopyBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.bookCopyBindingSource)).BeginInit();
 			this.SuspendLayout();
@@ -99,7 +99,12 @@
 			// 
 			// dataGridView1
 			// 
+			this.dataGridView1.AllowUserToAddRows = false;
+			this.dataGridView1.AllowUserToDeleteRows = false;
+			this.dataGridView1.AllowUserToResizeColumns = false;
+			this.dataGridView1.AllowUserToResizeRows = false;
 			this.dataGridView1.AutoGenerateColumns = false;
+			this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
 			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.iDDataGridViewTextBoxColumn,
@@ -110,53 +115,13 @@
 			this.dataGridView1.DataSource = this.bookCopyBindingSource;
 			this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
 			this.dataGridView1.Location = new System.Drawing.Point(0, 73);
+			this.dataGridView1.MultiSelect = false;
 			this.dataGridView1.Name = "dataGridView1";
 			this.dataGridView1.ReadOnly = true;
 			this.dataGridView1.RowHeadersVisible = false;
+			this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.dataGridView1.Size = new System.Drawing.Size(428, 150);
 			this.dataGridView1.TabIndex = 5;
-			// 
-			// iDDataGridViewTextBoxColumn
-			// 
-			this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
-			this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
-			this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
-			this.iDDataGridViewTextBoxColumn.ReadOnly = true;
-			this.iDDataGridViewTextBoxColumn.Width = 92;
-			// 
-			// takenDataGridViewCheckBoxColumn
-			// 
-			this.takenDataGridViewCheckBoxColumn.DataPropertyName = "Taken";
-			this.takenDataGridViewCheckBoxColumn.HeaderText = "Taken";
-			this.takenDataGridViewCheckBoxColumn.Name = "takenDataGridViewCheckBoxColumn";
-			this.takenDataGridViewCheckBoxColumn.ReadOnly = true;
-			this.takenDataGridViewCheckBoxColumn.Width = 41;
-			// 
-			// readerIDDataGridViewTextBoxColumn
-			// 
-			this.readerIDDataGridViewTextBoxColumn.DataPropertyName = "ReaderID";
-			this.readerIDDataGridViewTextBoxColumn.HeaderText = "ReaderID";
-			this.readerIDDataGridViewTextBoxColumn.Name = "readerIDDataGridViewTextBoxColumn";
-			this.readerIDDataGridViewTextBoxColumn.ReadOnly = true;
-			this.readerIDDataGridViewTextBoxColumn.Width = 92;
-			// 
-			// dateTakenDataGridViewTextBoxColumn
-			// 
-			this.dateTakenDataGridViewTextBoxColumn.DataPropertyName = "DateTaken";
-			this.dateTakenDataGridViewTextBoxColumn.HeaderText = "DateTaken";
-			this.dateTakenDataGridViewTextBoxColumn.Name = "dateTakenDataGridViewTextBoxColumn";
-			this.dateTakenDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// dateReturnDataGridViewTextBoxColumn
-			// 
-			this.dateReturnDataGridViewTextBoxColumn.DataPropertyName = "DateReturn";
-			this.dateReturnDataGridViewTextBoxColumn.HeaderText = "DateReturn";
-			this.dateReturnDataGridViewTextBoxColumn.Name = "dateReturnDataGridViewTextBoxColumn";
-			this.dateReturnDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// bookCopyBindingSource
-			// 
-			this.bookCopyBindingSource.DataSource = typeof(Library.BookCopy);
 			// 
 			// author
 			// 
@@ -220,6 +185,48 @@
 			this.copyCount.Size = new System.Drawing.Size(35, 13);
 			this.copyCount.TabIndex = 12;
 			this.copyCount.Text = "label7";
+			// 
+			// iDDataGridViewTextBoxColumn
+			// 
+			this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
+			this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
+			this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
+			this.iDDataGridViewTextBoxColumn.ReadOnly = true;
+			this.iDDataGridViewTextBoxColumn.Width = 92;
+			// 
+			// takenDataGridViewCheckBoxColumn
+			// 
+			this.takenDataGridViewCheckBoxColumn.DataPropertyName = "Taken";
+			this.takenDataGridViewCheckBoxColumn.HeaderText = "Taken";
+			this.takenDataGridViewCheckBoxColumn.Name = "takenDataGridViewCheckBoxColumn";
+			this.takenDataGridViewCheckBoxColumn.ReadOnly = true;
+			this.takenDataGridViewCheckBoxColumn.Width = 41;
+			// 
+			// readerIDDataGridViewTextBoxColumn
+			// 
+			this.readerIDDataGridViewTextBoxColumn.DataPropertyName = "ReaderID";
+			this.readerIDDataGridViewTextBoxColumn.HeaderText = "ReaderID";
+			this.readerIDDataGridViewTextBoxColumn.Name = "readerIDDataGridViewTextBoxColumn";
+			this.readerIDDataGridViewTextBoxColumn.ReadOnly = true;
+			this.readerIDDataGridViewTextBoxColumn.Width = 92;
+			// 
+			// dateTakenDataGridViewTextBoxColumn
+			// 
+			this.dateTakenDataGridViewTextBoxColumn.DataPropertyName = "DateTaken";
+			this.dateTakenDataGridViewTextBoxColumn.HeaderText = "DateTaken";
+			this.dateTakenDataGridViewTextBoxColumn.Name = "dateTakenDataGridViewTextBoxColumn";
+			this.dateTakenDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// dateReturnDataGridViewTextBoxColumn
+			// 
+			this.dateReturnDataGridViewTextBoxColumn.DataPropertyName = "DateReturn";
+			this.dateReturnDataGridViewTextBoxColumn.HeaderText = "DateReturn";
+			this.dateReturnDataGridViewTextBoxColumn.Name = "dateReturnDataGridViewTextBoxColumn";
+			this.dateReturnDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// bookCopyBindingSource
+			// 
+			this.bookCopyBindingSource.DataSource = typeof(Library.BookCopy);
 			// 
 			// CopiesForm
 			// 

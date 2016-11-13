@@ -92,6 +92,12 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reader.cs" />
+    <Compile Include="TakenBooksForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TakenBooksForm.Designer.cs">
+      <DependentUpon>TakenBooksForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="XmlDictionarySerialization.cs" />
     <EmbeddedResource Include="CopiesForm.resx">
       <DependentUpon>CopiesForm.cs</DependentUpon>
@@ -114,6 +120,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="TakenBooksForm.resx">
+      <DependentUpon>TakenBooksForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\DataSources\Book.datasource" />
     <None Include="Properties\DataSources\BookCopy.datasource" />
     <None Include="Properties\DataSources\Form1.datasource" />

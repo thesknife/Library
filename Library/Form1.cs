@@ -38,9 +38,10 @@ namespace Library
 			 * ++++++++++++++linq i metodus
 			 * Panaikint take/close tabus, inkorporuot i pirmus 2
 			 * Knygose:
-			 *		prideti knyga
+			 *		+++++++++++++prideti knyga
 			 *		Paimti knyga
-			 *	sarasas paimtu knygu (mygtukas prie reader)
+			 *	++++++++++++++++sarasas paimtu knygu (mygtukas prie reader)
+			 *	++++++++++++++++sarasas visu kopiju
 			 *	fix id
 			 *	
 			 * */
@@ -402,6 +403,17 @@ namespace Library
 				MessageBox.Show("New Copy added");
 			}
 		}
-		
+
+		private void dataGridViewReaders_CellContentClick(object sender, DataGridViewCellEventArgs e)
+		{
+			var senderGrid = (DataGridView)sender;
+
+			if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
+			{
+				Reader reader = FindReader(senderGrid.SelectedRows[0].Cells[0].Value.ToString());
+				TakenBooksForm takenBooksForm = new TakenBooksForm(reader);
+				takenBooksForm.Show();
+			}
+		}
 	}
 }
