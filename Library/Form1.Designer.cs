@@ -33,15 +33,25 @@
 			this.tabs = new System.Windows.Forms.TabControl();
 			this.tabPage1 = new System.Windows.Forms.TabPage();
 			this.dataGridViewBooks = new System.Windows.Forms.DataGridView();
+			this.authorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.titleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.iSBNDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.yearDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.numPagesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Copies = new System.Windows.Forms.DataGridViewButtonColumn();
 			this.New = new System.Windows.Forms.DataGridViewButtonColumn();
+			this.bookBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.label1 = new System.Windows.Forms.Label();
 			this.searchBook = new System.Windows.Forms.Button();
 			this.bookInput = new System.Windows.Forms.TextBox();
 			this.tabPage2 = new System.Windows.Forms.TabPage();
 			this.dataGridViewReaders = new System.Windows.Forms.DataGridView();
+			this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.DateOfBirth = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Taken = new System.Windows.Forms.DataGridViewButtonColumn();
+			this.readerBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.label2 = new System.Windows.Forms.Label();
 			this.readerInput = new System.Windows.Forms.TextBox();
 			this.addReader = new System.Windows.Forms.Button();
@@ -60,39 +70,14 @@
 			this.titleInput = new System.Windows.Forms.TextBox();
 			this.authorInput = new System.Windows.Forms.TextBox();
 			this.takeBook = new System.Windows.Forms.Button();
-			this.tabPage4 = new System.Windows.Forms.TabPage();
-			this.idReturnInput = new System.Windows.Forms.TextBox();
-			this.label14 = new System.Windows.Forms.Label();
-			this.label15 = new System.Windows.Forms.Label();
-			this.nameReturnInput = new System.Windows.Forms.TextBox();
-			this.label16 = new System.Windows.Forms.Label();
-			this.label10 = new System.Windows.Forms.Label();
-			this.label11 = new System.Windows.Forms.Label();
-			this.label12 = new System.Windows.Forms.Label();
-			this.label13 = new System.Windows.Forms.Label();
-			this.isbnReturnInput = new System.Windows.Forms.TextBox();
-			this.titleReturnInput = new System.Windows.Forms.TextBox();
-			this.authorReturnInput = new System.Windows.Forms.TextBox();
-			this.returnBook = new System.Windows.Forms.Button();
-			this.authorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.titleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.iSBNDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.yearDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.numPagesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.bookBindingSource = new System.Windows.Forms.BindingSource(this.components);
-			this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.readerBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.tabs.SuspendLayout();
 			this.tabPage1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridViewBooks)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.bookBindingSource)).BeginInit();
 			this.tabPage2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridViewReaders)).BeginInit();
-			this.tabPage3.SuspendLayout();
-			this.tabPage4.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.bookBindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.readerBindingSource)).BeginInit();
+			this.tabPage3.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// addBook
@@ -110,7 +95,6 @@
 			this.tabs.Controls.Add(this.tabPage1);
 			this.tabs.Controls.Add(this.tabPage2);
 			this.tabs.Controls.Add(this.tabPage3);
-			this.tabs.Controls.Add(this.tabPage4);
 			this.tabs.Cursor = System.Windows.Forms.Cursors.Default;
 			this.tabs.Dock = System.Windows.Forms.DockStyle.Bottom;
 			this.tabs.Location = new System.Drawing.Point(0, -3);
@@ -164,6 +148,46 @@
 			this.dataGridViewBooks.TabIndex = 5;
 			this.dataGridViewBooks.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewBooks_CellContentClick);
 			// 
+			// authorDataGridViewTextBoxColumn
+			// 
+			this.authorDataGridViewTextBoxColumn.DataPropertyName = "Author";
+			this.authorDataGridViewTextBoxColumn.HeaderText = "Author";
+			this.authorDataGridViewTextBoxColumn.Name = "authorDataGridViewTextBoxColumn";
+			this.authorDataGridViewTextBoxColumn.ReadOnly = true;
+			this.authorDataGridViewTextBoxColumn.Width = 90;
+			// 
+			// titleDataGridViewTextBoxColumn
+			// 
+			this.titleDataGridViewTextBoxColumn.DataPropertyName = "Title";
+			this.titleDataGridViewTextBoxColumn.HeaderText = "Title";
+			this.titleDataGridViewTextBoxColumn.Name = "titleDataGridViewTextBoxColumn";
+			this.titleDataGridViewTextBoxColumn.ReadOnly = true;
+			this.titleDataGridViewTextBoxColumn.Width = 120;
+			// 
+			// iSBNDataGridViewTextBoxColumn
+			// 
+			this.iSBNDataGridViewTextBoxColumn.DataPropertyName = "ISBN";
+			this.iSBNDataGridViewTextBoxColumn.HeaderText = "ISBN";
+			this.iSBNDataGridViewTextBoxColumn.Name = "iSBNDataGridViewTextBoxColumn";
+			this.iSBNDataGridViewTextBoxColumn.ReadOnly = true;
+			this.iSBNDataGridViewTextBoxColumn.Width = 78;
+			// 
+			// yearDataGridViewTextBoxColumn
+			// 
+			this.yearDataGridViewTextBoxColumn.DataPropertyName = "Year";
+			this.yearDataGridViewTextBoxColumn.HeaderText = "Year";
+			this.yearDataGridViewTextBoxColumn.Name = "yearDataGridViewTextBoxColumn";
+			this.yearDataGridViewTextBoxColumn.ReadOnly = true;
+			this.yearDataGridViewTextBoxColumn.Width = 40;
+			// 
+			// numPagesDataGridViewTextBoxColumn
+			// 
+			this.numPagesDataGridViewTextBoxColumn.DataPropertyName = "NumPages";
+			this.numPagesDataGridViewTextBoxColumn.HeaderText = "Pages";
+			this.numPagesDataGridViewTextBoxColumn.Name = "numPagesDataGridViewTextBoxColumn";
+			this.numPagesDataGridViewTextBoxColumn.ReadOnly = true;
+			this.numPagesDataGridViewTextBoxColumn.Width = 45;
+			// 
 			// Copies
 			// 
 			this.Copies.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
@@ -183,6 +207,10 @@
 			this.New.Text = "Add ";
 			this.New.UseColumnTextForButtonValue = true;
 			this.New.Width = 81;
+			// 
+			// bookBindingSource
+			// 
+			this.bookBindingSource.DataSource = typeof(Library.Book);
 			// 
 			// label1
 			// 
@@ -221,7 +249,7 @@
 			this.tabPage2.Location = new System.Drawing.Point(4, 22);
 			this.tabPage2.Name = "tabPage2";
 			this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage2.Size = new System.Drawing.Size(533, 209);
+			this.tabPage2.Size = new System.Drawing.Size(533, 206);
 			this.tabPage2.TabIndex = 1;
 			this.tabPage2.Text = "Search readers";
 			// 
@@ -242,7 +270,7 @@
             this.Taken});
 			this.dataGridViewReaders.DataSource = this.readerBindingSource;
 			this.dataGridViewReaders.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.dataGridViewReaders.Location = new System.Drawing.Point(3, 52);
+			this.dataGridViewReaders.Location = new System.Drawing.Point(3, 49);
 			this.dataGridViewReaders.MultiSelect = false;
 			this.dataGridViewReaders.Name = "dataGridViewReaders";
 			this.dataGridViewReaders.ReadOnly = true;
@@ -252,6 +280,22 @@
 			this.dataGridViewReaders.TabIndex = 6;
 			this.dataGridViewReaders.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewReaders_CellContentClick);
 			// 
+			// nameDataGridViewTextBoxColumn
+			// 
+			this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+			this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+			this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+			this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// iDDataGridViewTextBoxColumn
+			// 
+			this.iDDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
+			this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
+			this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
+			this.iDDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
 			// DateOfBirth
 			// 
 			this.DateOfBirth.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -259,6 +303,14 @@
 			this.DateOfBirth.HeaderText = "Date Of Birth";
 			this.DateOfBirth.Name = "DateOfBirth";
 			this.DateOfBirth.ReadOnly = true;
+			// 
+			// addressDataGridViewTextBoxColumn
+			// 
+			this.addressDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.addressDataGridViewTextBoxColumn.DataPropertyName = "Address";
+			this.addressDataGridViewTextBoxColumn.HeaderText = "Address";
+			this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
+			this.addressDataGridViewTextBoxColumn.ReadOnly = true;
 			// 
 			// Taken
 			// 
@@ -268,6 +320,10 @@
 			this.Taken.ReadOnly = true;
 			this.Taken.Text = "View";
 			this.Taken.UseColumnTextForButtonValue = true;
+			// 
+			// readerBindingSource
+			// 
+			this.readerBindingSource.DataSource = typeof(Library.Reader);
 			// 
 			// label2
 			// 
@@ -323,7 +379,7 @@
 			this.tabPage3.Controls.Add(this.takeBook);
 			this.tabPage3.Location = new System.Drawing.Point(4, 22);
 			this.tabPage3.Name = "tabPage3";
-			this.tabPage3.Size = new System.Drawing.Size(964, 209);
+			this.tabPage3.Size = new System.Drawing.Size(533, 206);
 			this.tabPage3.TabIndex = 2;
 			this.tabPage3.Text = "Book taken";
 			// 
@@ -436,208 +492,6 @@
 			this.takeBook.UseVisualStyleBackColor = true;
 			this.takeBook.Click += new System.EventHandler(this.takeBook_Click);
 			// 
-			// tabPage4
-			// 
-			this.tabPage4.BackColor = System.Drawing.Color.Transparent;
-			this.tabPage4.Controls.Add(this.idReturnInput);
-			this.tabPage4.Controls.Add(this.label14);
-			this.tabPage4.Controls.Add(this.label15);
-			this.tabPage4.Controls.Add(this.nameReturnInput);
-			this.tabPage4.Controls.Add(this.label16);
-			this.tabPage4.Controls.Add(this.label10);
-			this.tabPage4.Controls.Add(this.label11);
-			this.tabPage4.Controls.Add(this.label12);
-			this.tabPage4.Controls.Add(this.label13);
-			this.tabPage4.Controls.Add(this.isbnReturnInput);
-			this.tabPage4.Controls.Add(this.titleReturnInput);
-			this.tabPage4.Controls.Add(this.authorReturnInput);
-			this.tabPage4.Controls.Add(this.returnBook);
-			this.tabPage4.Location = new System.Drawing.Point(4, 22);
-			this.tabPage4.Name = "tabPage4";
-			this.tabPage4.Size = new System.Drawing.Size(964, 209);
-			this.tabPage4.TabIndex = 3;
-			this.tabPage4.Text = "Book Returned";
-			// 
-			// idReturnInput
-			// 
-			this.idReturnInput.Location = new System.Drawing.Point(231, 102);
-			this.idReturnInput.Name = "idReturnInput";
-			this.idReturnInput.Size = new System.Drawing.Size(145, 20);
-			this.idReturnInput.TabIndex = 19;
-			// 
-			// label14
-			// 
-			this.label14.AutoSize = true;
-			this.label14.Location = new System.Drawing.Point(228, 87);
-			this.label14.Name = "label14";
-			this.label14.Size = new System.Drawing.Size(82, 13);
-			this.label14.TabIndex = 18;
-			this.label14.Text = "Enter reader ID:";
-			// 
-			// label15
-			// 
-			this.label15.AutoSize = true;
-			this.label15.Location = new System.Drawing.Point(273, 74);
-			this.label15.Name = "label15";
-			this.label15.Size = new System.Drawing.Size(23, 13);
-			this.label15.TabIndex = 17;
-			this.label15.Text = "OR";
-			// 
-			// nameReturnInput
-			// 
-			this.nameReturnInput.Location = new System.Drawing.Point(231, 44);
-			this.nameReturnInput.Name = "nameReturnInput";
-			this.nameReturnInput.Size = new System.Drawing.Size(145, 20);
-			this.nameReturnInput.TabIndex = 16;
-			// 
-			// label16
-			// 
-			this.label16.AutoSize = true;
-			this.label16.Location = new System.Drawing.Point(228, 29);
-			this.label16.Name = "label16";
-			this.label16.Size = new System.Drawing.Size(68, 13);
-			this.label16.TabIndex = 15;
-			this.label16.Text = "Enter reader:";
-			// 
-			// label10
-			// 
-			this.label10.AutoSize = true;
-			this.label10.Location = new System.Drawing.Point(84, 117);
-			this.label10.Name = "label10";
-			this.label10.Size = new System.Drawing.Size(23, 13);
-			this.label10.TabIndex = 14;
-			this.label10.Text = "OR";
-			// 
-			// label11
-			// 
-			this.label11.AutoSize = true;
-			this.label11.Location = new System.Drawing.Point(17, 134);
-			this.label11.Name = "label11";
-			this.label11.Size = new System.Drawing.Size(90, 13);
-			this.label11.TabIndex = 13;
-			this.label11.Text = "Enter book ISBN:";
-			// 
-			// label12
-			// 
-			this.label12.AutoSize = true;
-			this.label12.Location = new System.Drawing.Point(17, 73);
-			this.label12.Name = "label12";
-			this.label12.Size = new System.Drawing.Size(81, 13);
-			this.label12.TabIndex = 12;
-			this.label12.Text = "Enter book title:";
-			// 
-			// label13
-			// 
-			this.label13.AutoSize = true;
-			this.label13.Location = new System.Drawing.Point(17, 28);
-			this.label13.Name = "label13";
-			this.label13.Size = new System.Drawing.Size(95, 13);
-			this.label13.TabIndex = 11;
-			this.label13.Text = "Enter book author:";
-			// 
-			// isbnReturnInput
-			// 
-			this.isbnReturnInput.Location = new System.Drawing.Point(20, 150);
-			this.isbnReturnInput.Name = "isbnReturnInput";
-			this.isbnReturnInput.Size = new System.Drawing.Size(148, 20);
-			this.isbnReturnInput.TabIndex = 10;
-			// 
-			// titleReturnInput
-			// 
-			this.titleReturnInput.Location = new System.Drawing.Point(20, 89);
-			this.titleReturnInput.Name = "titleReturnInput";
-			this.titleReturnInput.Size = new System.Drawing.Size(148, 20);
-			this.titleReturnInput.TabIndex = 9;
-			// 
-			// authorReturnInput
-			// 
-			this.authorReturnInput.Location = new System.Drawing.Point(20, 44);
-			this.authorReturnInput.Name = "authorReturnInput";
-			this.authorReturnInput.Size = new System.Drawing.Size(148, 20);
-			this.authorReturnInput.TabIndex = 8;
-			// 
-			// returnBook
-			// 
-			this.returnBook.Location = new System.Drawing.Point(232, 147);
-			this.returnBook.Name = "returnBook";
-			this.returnBook.Size = new System.Drawing.Size(78, 23);
-			this.returnBook.TabIndex = 0;
-			this.returnBook.Text = "Return book";
-			this.returnBook.UseVisualStyleBackColor = true;
-			this.returnBook.Click += new System.EventHandler(this.returnBook_Click);
-			// 
-			// authorDataGridViewTextBoxColumn
-			// 
-			this.authorDataGridViewTextBoxColumn.DataPropertyName = "Author";
-			this.authorDataGridViewTextBoxColumn.HeaderText = "Author";
-			this.authorDataGridViewTextBoxColumn.Name = "authorDataGridViewTextBoxColumn";
-			this.authorDataGridViewTextBoxColumn.ReadOnly = true;
-			this.authorDataGridViewTextBoxColumn.Width = 90;
-			// 
-			// titleDataGridViewTextBoxColumn
-			// 
-			this.titleDataGridViewTextBoxColumn.DataPropertyName = "Title";
-			this.titleDataGridViewTextBoxColumn.HeaderText = "Title";
-			this.titleDataGridViewTextBoxColumn.Name = "titleDataGridViewTextBoxColumn";
-			this.titleDataGridViewTextBoxColumn.ReadOnly = true;
-			this.titleDataGridViewTextBoxColumn.Width = 120;
-			// 
-			// iSBNDataGridViewTextBoxColumn
-			// 
-			this.iSBNDataGridViewTextBoxColumn.DataPropertyName = "ISBN";
-			this.iSBNDataGridViewTextBoxColumn.HeaderText = "ISBN";
-			this.iSBNDataGridViewTextBoxColumn.Name = "iSBNDataGridViewTextBoxColumn";
-			this.iSBNDataGridViewTextBoxColumn.ReadOnly = true;
-			this.iSBNDataGridViewTextBoxColumn.Width = 78;
-			// 
-			// yearDataGridViewTextBoxColumn
-			// 
-			this.yearDataGridViewTextBoxColumn.DataPropertyName = "Year";
-			this.yearDataGridViewTextBoxColumn.HeaderText = "Year";
-			this.yearDataGridViewTextBoxColumn.Name = "yearDataGridViewTextBoxColumn";
-			this.yearDataGridViewTextBoxColumn.ReadOnly = true;
-			this.yearDataGridViewTextBoxColumn.Width = 40;
-			// 
-			// numPagesDataGridViewTextBoxColumn
-			// 
-			this.numPagesDataGridViewTextBoxColumn.DataPropertyName = "NumPages";
-			this.numPagesDataGridViewTextBoxColumn.HeaderText = "Pages";
-			this.numPagesDataGridViewTextBoxColumn.Name = "numPagesDataGridViewTextBoxColumn";
-			this.numPagesDataGridViewTextBoxColumn.ReadOnly = true;
-			this.numPagesDataGridViewTextBoxColumn.Width = 45;
-			// 
-			// bookBindingSource
-			// 
-			this.bookBindingSource.DataSource = typeof(Library.Book);
-			// 
-			// nameDataGridViewTextBoxColumn
-			// 
-			this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-			this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-			this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-			this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// iDDataGridViewTextBoxColumn
-			// 
-			this.iDDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
-			this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
-			this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
-			this.iDDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// addressDataGridViewTextBoxColumn
-			// 
-			this.addressDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.addressDataGridViewTextBoxColumn.DataPropertyName = "Address";
-			this.addressDataGridViewTextBoxColumn.HeaderText = "Address";
-			this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
-			this.addressDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// readerBindingSource
-			// 
-			this.readerBindingSource.DataSource = typeof(Library.Reader);
-			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -651,15 +505,13 @@
 			this.tabPage1.ResumeLayout(false);
 			this.tabPage1.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridViewBooks)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.bookBindingSource)).EndInit();
 			this.tabPage2.ResumeLayout(false);
 			this.tabPage2.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridViewReaders)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.readerBindingSource)).EndInit();
 			this.tabPage3.ResumeLayout(false);
 			this.tabPage3.PerformLayout();
-			this.tabPage4.ResumeLayout(false);
-			this.tabPage4.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.bookBindingSource)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.readerBindingSource)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -678,7 +530,6 @@
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.TabPage tabPage3;
-		private System.Windows.Forms.TabPage tabPage4;
 		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.Label label4;
@@ -692,19 +543,6 @@
 		private System.Windows.Forms.Label label9;
 		private System.Windows.Forms.Label label8;
 		private System.Windows.Forms.TextBox nameInput;
-		private System.Windows.Forms.Label label10;
-		private System.Windows.Forms.Label label11;
-		private System.Windows.Forms.Label label12;
-		private System.Windows.Forms.Label label13;
-		private System.Windows.Forms.TextBox isbnReturnInput;
-		private System.Windows.Forms.TextBox titleReturnInput;
-		private System.Windows.Forms.TextBox authorReturnInput;
-		private System.Windows.Forms.Button returnBook;
-		private System.Windows.Forms.TextBox idReturnInput;
-		private System.Windows.Forms.Label label14;
-		private System.Windows.Forms.Label label15;
-		private System.Windows.Forms.TextBox nameReturnInput;
-		private System.Windows.Forms.Label label16;
 		private System.Windows.Forms.DataGridView dataGridViewBooks;
 		private System.Windows.Forms.BindingSource bookBindingSource;
 		private System.Windows.Forms.DataGridView dataGridViewReaders;

@@ -42,12 +42,13 @@
 			this.pages = new System.Windows.Forms.Label();
 			this.label6 = new System.Windows.Forms.Label();
 			this.copyCount = new System.Windows.Forms.Label();
+			this.bookCopyBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.takenDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
 			this.readerIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dateTakenDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dateReturnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.bookCopyBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.Return = new System.Windows.Forms.DataGridViewButtonColumn();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.bookCopyBindingSource)).BeginInit();
 			this.SuspendLayout();
@@ -111,7 +112,8 @@
             this.takenDataGridViewCheckBoxColumn,
             this.readerIDDataGridViewTextBoxColumn,
             this.dateTakenDataGridViewTextBoxColumn,
-            this.dateReturnDataGridViewTextBoxColumn});
+            this.dateReturnDataGridViewTextBoxColumn,
+            this.Return});
 			this.dataGridView1.DataSource = this.bookCopyBindingSource;
 			this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
 			this.dataGridView1.Location = new System.Drawing.Point(0, 73);
@@ -120,8 +122,9 @@
 			this.dataGridView1.ReadOnly = true;
 			this.dataGridView1.RowHeadersVisible = false;
 			this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.dataGridView1.Size = new System.Drawing.Size(428, 150);
+			this.dataGridView1.Size = new System.Drawing.Size(455, 150);
 			this.dataGridView1.TabIndex = 5;
+			this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
 			// 
 			// author
 			// 
@@ -186,6 +189,10 @@
 			this.copyCount.TabIndex = 12;
 			this.copyCount.Text = "label7";
 			// 
+			// bookCopyBindingSource
+			// 
+			this.bookCopyBindingSource.DataSource = typeof(Library.BookCopy);
+			// 
 			// iDDataGridViewTextBoxColumn
 			// 
 			this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
@@ -212,6 +219,7 @@
 			// 
 			// dateTakenDataGridViewTextBoxColumn
 			// 
+			this.dateTakenDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
 			this.dateTakenDataGridViewTextBoxColumn.DataPropertyName = "DateTaken";
 			this.dateTakenDataGridViewTextBoxColumn.HeaderText = "DateTaken";
 			this.dateTakenDataGridViewTextBoxColumn.Name = "dateTakenDataGridViewTextBoxColumn";
@@ -219,20 +227,26 @@
 			// 
 			// dateReturnDataGridViewTextBoxColumn
 			// 
+			this.dateReturnDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
 			this.dateReturnDataGridViewTextBoxColumn.DataPropertyName = "DateReturn";
 			this.dateReturnDataGridViewTextBoxColumn.HeaderText = "DateReturn";
 			this.dateReturnDataGridViewTextBoxColumn.Name = "dateReturnDataGridViewTextBoxColumn";
 			this.dateReturnDataGridViewTextBoxColumn.ReadOnly = true;
 			// 
-			// bookCopyBindingSource
+			// Return
 			// 
-			this.bookCopyBindingSource.DataSource = typeof(Library.BookCopy);
+			this.Return.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.Return.HeaderText = "Return copy";
+			this.Return.Name = "Return";
+			this.Return.ReadOnly = true;
+			this.Return.Text = "Return";
+			this.Return.UseColumnTextForButtonValue = true;
 			// 
 			// CopiesForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(428, 223);
+			this.ClientSize = new System.Drawing.Size(455, 223);
 			this.Controls.Add(this.copyCount);
 			this.Controls.Add(this.label6);
 			this.Controls.Add(this.pages);
@@ -263,11 +277,6 @@
 		private System.Windows.Forms.Label label4;
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.DataGridView dataGridView1;
-		private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewCheckBoxColumn takenDataGridViewCheckBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn readerIDDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dateTakenDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dateReturnDataGridViewTextBoxColumn;
 		private System.Windows.Forms.BindingSource bookCopyBindingSource;
 		private System.Windows.Forms.Label author;
 		private System.Windows.Forms.Label title;
@@ -276,5 +285,11 @@
 		private System.Windows.Forms.Label pages;
 		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.Label copyCount;
+		private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewCheckBoxColumn takenDataGridViewCheckBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn readerIDDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn dateTakenDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn dateReturnDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewButtonColumn Return;
 	}
 }

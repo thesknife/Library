@@ -47,6 +47,7 @@
 			this.DateReturn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.DateTaken = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.CopyID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Return = new System.Windows.Forms.DataGridViewButtonColumn();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.bookCopyBindingSource)).BeginInit();
 			this.SuspendLayout();
@@ -90,7 +91,7 @@
 			// label5
 			// 
 			this.label5.AutoSize = true;
-			this.label5.Location = new System.Drawing.Point(147, 13);
+			this.label5.Location = new System.Drawing.Point(182, 13);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(68, 13);
 			this.label5.TabIndex = 4;
@@ -99,7 +100,7 @@
 			// date
 			// 
 			this.date.AutoSize = true;
-			this.date.Location = new System.Drawing.Point(221, 13);
+			this.date.Location = new System.Drawing.Point(256, 13);
 			this.date.Name = "date";
 			this.date.Size = new System.Drawing.Size(35, 13);
 			this.date.TabIndex = 5;
@@ -108,7 +109,7 @@
 			// label7
 			// 
 			this.label7.AutoSize = true;
-			this.label7.Location = new System.Drawing.Point(167, 26);
+			this.label7.Location = new System.Drawing.Point(202, 26);
 			this.label7.Name = "label7";
 			this.label7.Size = new System.Drawing.Size(48, 13);
 			this.label7.TabIndex = 6;
@@ -117,7 +118,7 @@
 			// address
 			// 
 			this.address.AutoSize = true;
-			this.address.Location = new System.Drawing.Point(221, 26);
+			this.address.Location = new System.Drawing.Point(256, 26);
 			this.address.Name = "address";
 			this.address.Size = new System.Drawing.Size(35, 13);
 			this.address.TabIndex = 7;
@@ -126,7 +127,7 @@
 			// label9
 			// 
 			this.label9.AutoSize = true;
-			this.label9.Location = new System.Drawing.Point(303, 13);
+			this.label9.Location = new System.Drawing.Point(362, 13);
 			this.label9.Name = "label9";
 			this.label9.Size = new System.Drawing.Size(70, 13);
 			this.label9.TabIndex = 8;
@@ -135,7 +136,7 @@
 			// books
 			// 
 			this.books.AutoSize = true;
-			this.books.Location = new System.Drawing.Point(379, 13);
+			this.books.Location = new System.Drawing.Point(438, 13);
 			this.books.Name = "books";
 			this.books.Size = new System.Drawing.Size(41, 13);
 			this.books.TabIndex = 9;
@@ -146,6 +147,7 @@
 			this.dataGridView1.AllowUserToAddRows = false;
 			this.dataGridView1.AllowUserToDeleteRows = false;
 			this.dataGridView1.AllowUserToResizeColumns = false;
+			this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
 			this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
 			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -153,7 +155,8 @@
             this.Title,
             this.DateReturn,
             this.DateTaken,
-            this.CopyID});
+            this.CopyID,
+            this.Return});
 			this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
 			this.dataGridView1.Location = new System.Drawing.Point(0, 46);
 			this.dataGridView1.MultiSelect = false;
@@ -161,8 +164,9 @@
 			this.dataGridView1.ReadOnly = true;
 			this.dataGridView1.RowHeadersVisible = false;
 			this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.dataGridView1.Size = new System.Drawing.Size(456, 132);
+			this.dataGridView1.Size = new System.Drawing.Size(516, 132);
 			this.dataGridView1.TabIndex = 10;
+			this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
 			// 
 			// dataGridViewTextBoxColumn1
 			// 
@@ -209,11 +213,21 @@
 			this.CopyID.Name = "CopyID";
 			this.CopyID.ReadOnly = true;
 			// 
+			// Return
+			// 
+			this.Return.HeaderText = "Return Book";
+			this.Return.Name = "Return";
+			this.Return.ReadOnly = true;
+			this.Return.Text = "Return";
+			this.Return.UseColumnTextForButtonValue = true;
+			this.Return.Width = 73;
+			// 
 			// TakenBooksForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(456, 178);
+			this.AutoSize = true;
+			this.ClientSize = new System.Drawing.Size(516, 178);
 			this.Controls.Add(this.dataGridView1);
 			this.Controls.Add(this.books);
 			this.Controls.Add(this.label9);
@@ -254,5 +268,6 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn DateReturn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn DateTaken;
 		private System.Windows.Forms.DataGridViewTextBoxColumn CopyID;
+		private System.Windows.Forms.DataGridViewButtonColumn Return;
 	}
 }

@@ -156,9 +156,6 @@ namespace Library
 				case 2:
 					RefreshTakeBook();
 					break;
-				case 3:
-					RefreshReturnBook();
-					break;
 			}
 		}
 
@@ -169,15 +166,6 @@ namespace Library
 			ISBNInput.Clear();
 			nameInput.Clear();
 			IDInput.Clear();
-		}
-
-		void RefreshReturnBook()
-		{
-			authorReturnInput.Clear();
-			titleReturnInput.Clear();
-			isbnReturnInput.Clear();
-			nameReturnInput.Clear();
-			idReturnInput.Clear();
 		}
 
 		public void RefreshSearchReaders()
@@ -301,7 +289,7 @@ namespace Library
 			}
 		}
 
-		private void returnBook_Click(object sender, EventArgs e)
+		/*private void returnBook_Click(object sender, EventArgs e)
 		{
 			Reader read = null;
 			if (idReturnInput.Text.Length != 0)
@@ -348,7 +336,7 @@ namespace Library
 			{
 				MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK);
 			}
-		}
+		}*/
 
 		private Reader FindReader(string name)
 		{
@@ -382,7 +370,7 @@ namespace Library
 			{
 				if (e.ColumnIndex == 6)
 					NewCopy(senderGrid);            //use delegate?
-				else
+				else 
 					ShowCopies(senderGrid);
 			}
 		}
@@ -392,6 +380,7 @@ namespace Library
 			Book book = books.FindBook(sender.SelectedRows[0].Cells[1].Value.ToString(), sender.SelectedRows[0].Cells[0].Value.ToString());
 			CopiesForm copiesForm = new CopiesForm(books.GetBookCopyList(book));
 			copiesForm.Show();
+			copiesForm.BookReturn += TakenBooksForm_BookReturn;
 		}
 
 		private void NewCopy(DataGridView sender)
@@ -413,7 +402,16 @@ namespace Library
 				Reader reader = FindReader(senderGrid.SelectedRows[0].Cells[0].Value.ToString());
 				TakenBooksForm takenBooksForm = new TakenBooksForm(reader);
 				takenBooksForm.Show();
+				takenBooksForm.BookReturn += TakenBooksForm_BookReturn;
 			}
 		}
+
+		private void TakenBooksForm_BookReturn(object sender, BookReturnEventArgs e)
+		{
+			//check if works, especialy with copies in dictionary and reader list
+			//MessageBox.Show(e.copyID + " " + e.readerID);
+			books.BookCopyReturned(books.FindCopy(e.copyID), FindReader(e.readerID));
+		}
+		//Note: when taking book, create new form for taking in this forms, not in those, where they are taken.
 	}
 }

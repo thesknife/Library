@@ -69,9 +69,22 @@ namespace Library
 		{
 			foreach (Book book in books.Keys)
 			{
-				if ((book.Author.Equals(isbn)))
+				if (book.Author.Equals(isbn))
 				{
 					return book;
+				}
+			}
+			return null;
+		}
+
+		public BookCopy FindCopy(int id)
+		{
+			foreach (List<BookCopy> list in books.Values)
+			{
+				foreach (BookCopy copy in list)
+				{
+					if (copy.ID.Equals(id))
+						return copy;
 				}
 			}
 			return null;
@@ -89,9 +102,10 @@ namespace Library
 
 		public void BookCopyTaken(Book key, Reader reader)
 		{
-			if (!books.ContainsKey(key))
+			Book book = FindBook(key.Title, key.Author);
+			if (!books.ContainsKey(book))
 				throw new Exception("Book not found");
-			foreach (BookCopy copy in books[key])
+			foreach (BookCopy copy in books[book])
 			{
 				if (!copy.Taken)
 				{
@@ -102,13 +116,12 @@ namespace Library
 			throw new Exception("All book copies are taken");
 		}
 
-		public void BookCopyReturned(Book key, Reader reader)
+		public void BookCopyReturned(BookCopy key, Reader reader)
 		{
-			if (!books.ContainsKey(key))
-				throw new Exception("Book not found");
-			foreach (BookCopy copy in books[key])
+			Book book = FindBook(key.Book.Title, key.Book.Author);
+			foreach (BookCopy copy in books[book])
 			{
-				if (!copy.ReaderID.Equals(reader))
+				if (copy.ReaderID.Equals(reader.ID))
 				{
 					reader.BookReturned(copy);
 					return;
