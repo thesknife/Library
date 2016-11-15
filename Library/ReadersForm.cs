@@ -43,6 +43,11 @@ namespace Library
 
 		private void button1_Click(object sender, EventArgs e)
 		{
+			if (dataGridView1.SelectedRows.Count == 0)
+			{
+				MessageBox.Show("Reader not selected");
+				return;
+			}
 			if (BookTake != null)
 			{
 				BookTake(this, new BookTakeEventArgs((int)dataGridView1.SelectedRows[0].Cells[1].Value, author, title));

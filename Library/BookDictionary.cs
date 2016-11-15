@@ -100,11 +100,11 @@ namespace Library
 			return books[key];
 		}
 
-		public void BookCopyTaken(Book key, Reader reader)
+		public void BookCopyTaken(string author, string title, Reader reader)
 		{
-			Book book = FindBook(key.Title, key.Author);
-			if (!books.ContainsKey(book))
-				throw new Exception("Book not found");
+			Book book = FindBook(title, author);
+			if (book == null)
+				throw new BookException("Book not found");
 			foreach (BookCopy copy in books[book])
 			{
 				if (!copy.Taken)
@@ -113,21 +113,19 @@ namespace Library
 					return;
 				}
 			}
-			throw new Exception("All book copies are taken");
+			throw new BookException("All book copies are taken");
 		}
 
-		public void BookCopyReturned(BookCopy key, Reader reader)
+		public void BookCopyReturned(int copyID, Reader reader)
 		{
-			Book book = FindBook(key.Book.Title, key.Book.Author);
-			foreach (BookCopy copy in books[book])
-			{
-				if (copy.ReaderID.Equals(reader.ID))
-				{
-					reader.BookReturned(copy);
-					return;
-				}
-			}
-			throw new Exception("No book copies are taken");
+			BookCopy copy = FindCopy(copyID);
+			if (copy == null)
+				throw new BookException("Copy with this id was not found");
+			if (!copy.ReaderID.Equals(reader.ID))
+				throw new BookException("Book taken not by this reader");
+			else
+				reader.BookReturned(copy);
+
 		}
 
 		IEnumerator IEnumerable.GetEnumerator()

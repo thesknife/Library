@@ -65,6 +65,7 @@
     <Compile Include="Book.cs" />
     <Compile Include="BookCopy.cs" />
     <Compile Include="BookDictionary.cs" />
+    <Compile Include="BookException.cs" />
     <Compile Include="BookReturnEventArgs.cs" />
     <Compile Include="BookTakeEventArgs.cs" />
     <Compile Include="CopiesForm.cs">

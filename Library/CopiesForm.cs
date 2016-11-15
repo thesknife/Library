@@ -13,6 +13,9 @@ namespace Library
 	public partial class CopiesForm : Form
 	{
 		List<BookCopy> _copies;
+
+		public delegate void BookReturnEventHandler(object sender, BookReturnEventArgs e);
+		public event BookReturnEventHandler BookReturn;
 		public CopiesForm(List<BookCopy> copies)
 		{
 			InitializeComponent();
@@ -31,9 +34,6 @@ namespace Library
 		{
 			dataGridView1.DataSource = _copies.Select(copy => new { copy.ID, copy.Taken, copy.ReaderID, copy.DateTaken, copy.DateReturn }).ToList();
 		}
-
-		public delegate void BookReturnEventHandler(object sender, BookReturnEventArgs e);
-		public event BookReturnEventHandler BookReturn;
 
 		private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
 		{

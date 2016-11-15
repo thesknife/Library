@@ -29,5 +29,10 @@ namespace Library
 		{
 			return (this.Author.Equals(other.Author) && this.Title.Equals(other.Title) || (this.ISBN.Equals(other.ISBN)));
 		}
+
+		public override string ToString()
+		{
+			return Author + " " + Title + " " + ISBN + " " + Year + " " + NumPages;
+		}
 	}
 }

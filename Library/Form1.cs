@@ -21,11 +21,11 @@ namespace Library
 				delegatuose arba įvykiuose (0,05),
 				metoduose (0,05).
 			Delegatai (0,1).
-			Įvykiai ir jų apdorojimas: standartiniai (0,05) ir pačių sukurti (0,15).
+			++++++++++++++Įvykiai ir jų apdorojimas: standartiniai (0,05) ir pačių sukurti (0,15).
 			Išimtys ir jų apdorojimas: standartinės (0,1) ir sukurtos išimtys (0,1), jų prasmingas apdorojimas.
 			Variacijos (0,05) ir kovariacijos (0,05) panaudojimas.
 			Trys anoniminiai metodai sukūrimas (0,15).
-			Trys lambda išraiškos (0,15).
+			+++++++++++++Trys lambda išraiškos (0,15).
 			Lygiagretaus programavimo panaudojimas:
 				Threading arba async/await(task) (naudojant pačių aprašytoms klasėms) (0,2),
 				Bendro resurso gijose/užduotyse naudojimas su reikiamomis apsaugomis (0,1).
@@ -37,12 +37,12 @@ namespace Library
 			 * +++++++++++++++++++++++Metodu ilgiai
 			 * ++++++++++++++linq i metodus
 			 * +++++++++++Panaikint take/close tabus, inkorporuot i pirmus 2
-			 * Knygose:
+			 * +++++++Knygose:
 			 *		+++++++++++++prideti knyga
 			 *		+++++++++++++Paimti knyga
 			 *	++++++++++++++++sarasas paimtu knygu (mygtukas prie reader)
 			 *	++++++++++++++++sarasas visu kopiju
-			 *	fix id
+			 *	fix id???
 			 *	
 			 * */
 		BookDictionary books = new BookDictionary();
@@ -51,6 +51,7 @@ namespace Library
 		public Form1()
 		{
 			InitializeComponent();
+		//	Task readBooks = new Task()
 			ReadBooks();
 			ReadReaders();
 			RefreshSearchBooks();
@@ -130,19 +131,6 @@ namespace Library
 			if (readers.Count != 0)
 				WriteReaders();
 		}
-
-		private void addBook_Click(object sender, EventArgs e)
-		{
-			NewBookForm newBook = new NewBookForm(books);
-			newBook.Show();
-			newBook.FormClosing += HandleNewBook;
-		}
-
-		private void HandleNewBook(object sender, EventArgs e)
-		{
-			RefreshSearchBooks();
-		}
-
 		private void tabs_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			switch (tabs.SelectedIndex)
@@ -167,12 +155,29 @@ namespace Library
 		public void RefreshSearchBooks()
 		{
 			bookBindingSource.ResetBindings(false);
-			bookBindingSource.DataSource = books.Keys.Select(book => new { book.Author, book.Title,
-																				book.ISBN, book.Year, book.NumPages }).ToList();
+			bookBindingSource.DataSource = books.Keys.Select(book => new {
+				book.Author,
+				book.Title,
+				book.ISBN,
+				book.Year,
+				book.NumPages
+			}).ToList();
 			dataGridViewBooks.DataSource = bookBindingSource;
 			bookInput.Clear();
 		}
 
+
+		private void addBook_Click(object sender, EventArgs e)
+		{
+			NewBookForm newBook = new NewBookForm(books);
+			newBook.Show();
+			newBook.FormClosing += HandleNewBook;
+		}
+
+		private void HandleNewBook(object sender, EventArgs e)
+		{
+			RefreshSearchBooks();
+		}
 		private void addReader_Click(object sender, EventArgs e)
 		{
 			NewReaderForm newReader = new NewReaderForm(readers);
@@ -357,7 +362,7 @@ namespace Library
 			if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
 			{
 				if (e.ColumnIndex == 7)
-					NewCopy(senderGrid);            //use delegate?
+					NewCopy(senderGrid);
 				else
 				{
 					if (e.ColumnIndex == 6)
@@ -365,6 +370,16 @@ namespace Library
 					else
 						ShowCopies(senderGrid);
 				}
+			}
+		}
+
+		private void NewCopy(DataGridView sender)
+		{
+			Book book = books.FindBook(sender.SelectedRows[0].Cells[1].Value.ToString(), sender.SelectedRows[0].Cells[0].Value.ToString());
+			if (book != null)
+			{
+				books.Add(new BookCopy(book));
+				MessageBox.Show("New Copy added");
 			}
 		}
 
@@ -379,7 +394,7 @@ namespace Library
 		{
 			try
 			{
-				books.BookCopyTaken(books.FindBook(e.title, e.author), FindReader(e.readerID));
+				books.BookCopyTaken(e.author, e.title, FindReader(e.readerID));
 			}
 			catch (Exception ex)
 			{
@@ -393,16 +408,6 @@ namespace Library
 			CopiesForm copiesForm = new CopiesForm(books.GetBookCopyList(book));
 			copiesForm.Show();
 			copiesForm.BookReturn += TakenBooksForm_BookReturn;
-		}
-
-		private void NewCopy(DataGridView sender)
-		{
-			Book book = books.FindBook(sender.SelectedRows[0].Cells[1].Value.ToString(), sender.SelectedRows[0].Cells[0].Value.ToString());
-			if (book != null)
-			{
-				books.Add(new BookCopy(book));
-				MessageBox.Show("New Copy added");
-			}
 		}
 
 		private void dataGridViewReaders_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -420,8 +425,17 @@ namespace Library
 
 		private void TakenBooksForm_BookReturn(object sender, BookReturnEventArgs e)
 		{
-			books.BookCopyReturned(books.FindCopy(e.copyID), FindReader(e.readerID));
+			try
+			{
+				Reader reader = FindReader(e.readerID);
+				if (reader == null)
+					throw new BookException("Reader not found");
+				books.BookCopyReturned(e.copyID, reader);
+			}
+			catch (BookException ex)
+			{
+				MessageBox.Show(ex.Message + Environment.NewLine + ex.Book);
+			}
 		}
-		//Note: when taking book, create new form for taking in this forms, not in those, where they are taken.
 	}
 }
